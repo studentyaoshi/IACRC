@@ -20,7 +20,16 @@ You can contact yangtielin@mail.xjtu.edu.cn when you have any questions, suggest
 
 PLINK, https://www.cog-genomics.org/plink2; Python2.7, https://www.python.org/downloads/; Bedtools, http://bedtools.readthedocs.io/en/latest/content/installation.html; and METAL if you would like to do meta analysis, http://csg.sph.umich.edu/abecasis/metal/download/.
 
-# Setup folder framework
+# Preparation
+
+### Setup floder framework
+
+```
+cd /your/local/path/pipeline
+```
+There are seven files you need to prepare before start calculation. The description and data format are as follows.
+
+
 
 ```
 
