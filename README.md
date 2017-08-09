@@ -110,9 +110,17 @@ chr5	172284905	172383585
 
 ### Start caculating
 
+###### Get circuitry
+```
+sh getcircuit.sh
+```
+You now get a folder named /your/local/path/result which contains different types of chromatin regulatory circuitry according to the paper.
 
+Please wait until this job finishes.
+This step can be long. So, use smaller files to test it is recommend.
 
-
-
-
-
+##### Caculate
+```
+sh caculate.sh name genotype phenotype
+```
+You now get the results of IACRC in /your/local/path/result/name/name.allepi
