@@ -57,3 +57,57 @@ chr1	2130000	2135000	chr1	2515000	2520000
 ```
 
 ##### Enhancer annotation
+
+Enhancer annotation were .bed file of the chromatin states downloaded from Roadmap, http://egg2.wustl.edu/roadmap/data/byFileType/chromhmmSegmentations/ChmmModels/coreMarks/jointModel/final/. In our paper, we used the chromatin states of GM12878 and '7_Enh' annotation in the forth column as input.
+
+```
+chr10	174200	174400	7_Enh	0	.	174200	174400	255,255,0
+chr10	175600	176000	7_Enh	0	.	175600	176000	255,255,0
+chr10	187400	188400	7_Enh	0	.	187400	188400	255,255,0
+chr10	228600	229000	7_Enh	0	.	228600	229000	255,255,0
+chr10	264600	265200	7_Enh	0	.	264600	265200	255,255,0
+...
+```
+
+##### Gene-enhancer
+Gene-enhancer contains two columns divided by tab including the gene name and the enhancer region downloaded from http://genetics.case.edu/prestige which including gene-enhancer information in 13 cell lines.
+
+```
+SLC25A28	chr10:101314742-101317123
+SLC25A28	chr10:101359480-101360496
+SLC25A28	chr10:101375165-101375877
+SLC25A28	chr10:101387579-101391927
+COX15	chr10:101409861-101410384
+...
+```
+
+##### Gene-super enhancer
+Gene-super enhancer contains three columns divided by tab including chromsome, the start and the end position of the super enhancer.
+
+```
+chr1	68148186	68237688
+chr2	37850717	37940881
+chr3	16099720	16182650
+chr4	7804602	7914384
+chr5	172284905	172383585
+...
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
