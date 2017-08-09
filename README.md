@@ -28,9 +28,32 @@ PLINK, https://www.cog-genomics.org/plink2; Python2.7, https://www.python.org/do
 cd /your/local/path/pipeline
 ```
 ### Prepare original files
-There are five original files you need to prepare before start calculation according to the disease you are studing. These files including gene information, hi-c pairs, enhancer annotion, gene-enhancer information and gene-super enhancer information. The description and data format are as follows.
+There are five original files you need to prepare before start calculation according to the disease you are studing. These files including gene information, Hi-C pairs, enhancer annotation, gene-enhancer information and gene-super enhancer information. The description and data format are as follows.
 
 ##### Gene information
-```
+
+Gene information contains four columns divided by tab including the gene name, chromosome, the start position of gene, and the end position of gene without header:
 
 ```
+OR4F5	chr1	69091	70008
+AL627309.1	chr1	134901	139379
+OR4F29	chr1	367640	368634
+OR4F16	chr1	621059	622053
+AL669831.1	chr1	738532	739137
+...
+```
+
+##### Hi-C pairs
+
+Hi-C pairs contains six columns divided by tab including the chromosome, the start position and the end position of the two regions without  header:
+
+```
+chr1	1050000	1060000	chr1	1180000	1190000
+chr1	1585000	1590000	chr1	1645000	1650000
+chr1	1710000	1715000	chr1	1835000	1840000
+chr1	2120000	2130000	chr1	2310000	2320000
+chr1	2130000	2135000	chr1	2515000	2520000
+...
+```
+
+##### Enhancer annotation
