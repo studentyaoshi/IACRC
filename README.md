@@ -18,9 +18,7 @@ You can contact yangtielin@mail.xjtu.edu.cn when you have any questions, suggest
 
 # Requiremnets
 
-PLINK, https://www.cog-genomics.org/plink2
-Python2.7, https://www.python.org/downloads/
-Bedtools, http://bedtools.readthedocs.io/en/latest/content/installation.html
+PLINK, https://www.cog-genomics.org/plink2; Python2.7, https://www.python.org/downloads/; Bedtools, http://bedtools.readthedocs.io/en/latest/content/installation.html
 
 # Setup folder framework
 
