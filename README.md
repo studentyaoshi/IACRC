@@ -30,6 +30,19 @@ cd /your/local/path/pipeline
 ### Prepare original files
 There are five original files you need to prepare before start calculation according to the disease you are studing. These files including gene information, Hi-C pairs, enhancer annotation, gene-enhancer information and gene-super enhancer information. The description and data format are as follows.
 
+These five files need to move to /your/local/path/original and change the file names in /your/local/path/original/files accordingly. For example, the following file indicate that the five files are gene_information, GM12878_HIC.bed,E116_enhancer.bed,GM12878_gene_enhancer.txt,obesity.SE.bed.
+
+```
+cat files
+```
+```
+GENE_POSITION gene_information
+HIC GM12878_HIC.bed
+HMM_ENHANCER E116_enhancer.bed
+GENE_ENHANCER GM12878_gene_enhancer.txt
+SUPER_ENHANCER obesity.SE.bed.
+```
+
 ##### Gene information
 
 Gene information contains four columns divided by tab including the gene name, chromosome, the start position of gene, and the end position of gene without header:
@@ -93,7 +106,7 @@ chr5	172284905	172383585
 ...
 ```
 
-
+###
 
 
 
