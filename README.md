@@ -108,9 +108,9 @@ chr5	172284905	172383585
 ...
 ```
 
-### Start caculating
+# Start caculating
 
-###### Get circuitry
+### Get circuitry
 ```
 sh getcircuit.sh
 ```
@@ -119,7 +119,7 @@ You now get a folder named /your/local/path/result which contains different type
 Please wait until this job finishes.
 This step can be long. So, use smaller files to test it is recommend.
 
-##### Caculate
+### Caculate
 ```
 sh caculate.sh name genotype phenotype
 ```
