@@ -35,7 +35,7 @@ These five files need to move to /your/local/path/original and change the file n
 
 
 ```
-cat your/local/path/original/files
+cat /your/local/path/original/files
 ```
 ```
 GENE_POSITION gene_information
