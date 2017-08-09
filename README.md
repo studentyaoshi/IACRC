@@ -35,14 +35,14 @@ These five files need to move to /your/local/path/original and change the file n
 
 
 ```
-cat files
+cat your/local/path/original/files
 ```
 ```
 GENE_POSITION gene_information
 HIC GM12878_HIC.bed
 HMM_ENHANCER E116_enhancer.bed
 GENE_ENHANCER GM12878_gene_enhancer.txt
-SUPER_ENHANCER obesity.SE.bed.
+SUPER_ENHANCER obesity.SE.bed
 ```
 
 ##### Gene information
@@ -73,7 +73,7 @@ chr1	2130000	2135000	chr1	2515000	2520000
 
 ##### Enhancer annotation
 
-Enhancer annotation were .bed file of the chromatin states downloaded from Roadmap, http://egg2.wustl.edu/roadmap/data/byFileType/chromhmmSegmentations/ChmmModels/coreMarks/jointModel/final/. In our paper, we used the chromatin states of GM12878 and '7_Enh' annotation in the forth column as input.
+Enhancer annotation is .bed file contains the chromatin states downloaded from Roadmap, http://egg2.wustl.edu/roadmap/data/byFileType/chromhmmSegmentations/ChmmModels/coreMarks/jointModel/final/. In our paper, we used the chromatin states of GM12878 and '7_Enh' annotation in the forth column as input.
 
 ```
 chr10	174200	174400	7_Enh	0	.	174200	174400	255,255,0
