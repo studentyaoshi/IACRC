@@ -27,10 +27,10 @@ PLINK, https://www.cog-genomics.org/plink2; Python2.7, https://www.python.org/do
 ```
 cd /your/local/path/pipeline
 ```
-There are seven files you need to prepare before start calculation. The description and data format are as follows.
+### Prepare original files
+There are five original files you need to prepare before start calculation according to the disease you are studing. These files including gene information, hi-c pairs, enhancer annotion, gene-enhancer information and gene-super enhancer information. The description and data format are as follows.
 
-
-
+##### Gene information
 ```
 
 ```
