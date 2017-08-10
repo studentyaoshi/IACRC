@@ -31,7 +31,7 @@ cd /your/local/path/pipeline
 ### Prepare original files
 There are five original files you need to prepare before starting calculation, according to the disease you are studing. These files including gene information, Hi-C pairs, enhancer annotation, gene-enhancer information and gene-super enhancer information. The description and data format are as follows.
 
-These five files need to be moved to /your/local/path/original and change the file names in /your/local/path/original/files accordingly. For example, the following file indicate that the five files are gene_information, GM12878_HIC.bed,E116_enhancer.bed,GM12878_gene_enhancer.txt,obesity.SE.bed.
+These five files need to be moved to /your/local/path/original and change the file names in /your/local/path/original/files accordingly. For example, the following file indicate that the five files are gene_information, GM12878_HIC.bed, E116_enhancer.bed, GM12878_gene_enhancer.txt, obesity.SE.bed.
 
 
 ```
@@ -117,10 +117,24 @@ sh getcircuit.sh
 You now get a folder named /your/local/path/result which contains different types of chromatin regulatory circuitry according to the paper.
 
 Please wait until this job finishes.
-This step can be long. So, use smaller files to test it is recommend.
+This step can be long. So, it is recommend to use smaller files to test this software first.
 
 ### Caculate
+
+There are three parameters you need to change in /your/local/path/original/files before caculate,which are Disease_Type, LD_threshold and MAF_threshold. For example:
+
 ```
-sh caculate.sh name genotype phenotype
+Disease_Type continuous
+LD_threshold 0.5
+MAF_threshold 0.05
+```
+
+Disease_Type: 'classified', indicates the disease you are studing is case/control test; 'continuous', indicates the disease you are studing is quantitative trait.
+LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that exclude this caculation.
+MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs.
+
+Note: LD, Linkage disequilibrium; MAF, Minor allele frequency.
+```
+sh iacrc.sh name genotype phenotype
 ```
 You now get the results of IACRC in /your/local/path/result/name/name.allepi

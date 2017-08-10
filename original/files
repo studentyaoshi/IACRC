@@ -6,4 +6,4 @@ SUPER_ENHANCER obesity.SE.bed
 
 Disease_Type continuous
 LD_threshold 0.5
-MAF_threshold 0.01
+MAF_threshold 0.05
