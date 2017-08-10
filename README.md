@@ -50,10 +50,10 @@ SUPER_ENHANCER obesity.SE.bed
 Gene information contains four columns divided by tab including the gene name, chromosome, the start and end position of gene without header:
 
 ```
-OR4F5	chr1	69091	70008
+OR4F5		chr1	69091	70008
 AL627309.1	chr1	134901	139379
-OR4F29	chr1	367640	368634
-OR4F16	chr1	621059	622053
+OR4F29		chr1	367640	368634
+OR4F16		chr1	621059	622053
 AL669831.1	chr1	738532	739137
 ...
 ```
@@ -94,7 +94,7 @@ SLC25A28	chr10:101314742-101317123
 SLC25A28	chr10:101359480-101360496
 SLC25A28	chr10:101375165-101375877
 SLC25A28	chr10:101387579-101391927
-COX15	chr10:101409861-101410384
+COX15		chr10:101409861-101410384
 ...
 ```
 
@@ -105,7 +105,7 @@ Gene-super enhancer contains three columns divided by tab including chromsome, t
 chr1	68148186	68237688
 chr2	37850717	37940881
 chr3	16099720	16182650
-chr4	7804602	7914384
+chr4	7804602		7914384
 chr5	172284905	172383585
 ...
 ```
