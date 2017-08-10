@@ -22,7 +22,7 @@ yangtielin@mail.xjtu.edu.cn
 
 ## Maintainer
 
-Shan-Shan Dong, Shi Yao
+Shan-Shan Dong and Shi Yao </br>
 You can contact dongss@xjtu.edu.cn or studentyaoshi@stu.xjtu.edu.cn when you have any questions, suggestions, comments, etc. Please describe in details, and attach your command line and log messages if possible.
 
 # Requiremnets
