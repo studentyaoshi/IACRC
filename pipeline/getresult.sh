@@ -1,11 +1,12 @@
 cd ../result/${1}/result
+ld=`grep LD_threshold ../original/files|awk -F ' ' 'print{$2}'`
 ls|grep epi.qt$|while read line
 do cat $line >> ../${1}.allepi
 done
 cd ../../../pipeline
 python get_result.py ../result/${1}/${1}.allepi
 rm ../result/${1}/${1}.allepi
-plink --noweb --bfile ${2} --r2 --ld-window-kb 1000 --ld-window 99999 --ld-window-r2 0.5 --out ../result/ld/${1}
+plink --noweb --bfile ${2} --r2 --ld-window-kb 1000 --ld-window 99999 --ld-window-r2 ${ld} --out ../result/ld/${1}
 python nold05.py ../result/ld/${1}.ld ../result/${1}/${1}.allepi.change ../result/${1}/${1}.allepi.change.nold05
 rm ../result/${1}/${1}.allepi.change
 sort -r ../result/${1}/${1}.allepi.change.nold05|uniq> ../result/${1}/${1}.allepi.uniq

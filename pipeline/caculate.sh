@@ -4,6 +4,7 @@ echo ''
 
 echo Reading in files in
 gene_position=`grep GENE_POSITION ../original/files|awk -F ' ' '{print$2}'`
+maf=`grep MAF_threshold ../original/files|awk -F ' ' 'print{$2}'`
 echo ''
 
 echo Creating files
@@ -30,10 +31,10 @@ do
 	let endg=$end+1000
 
 ###   creat set files: enhancer & gene (aa, ba, ca)  ###
-	plink --bfile ${2} --extract range ../result/gene/$genename --make-bed --out ../result/${1}/gene/$genename
+	plink --bfile ${2} --maf ${maf} --extract range ../result/gene/$genename --make-bed --out ../result/${1}/gene/$genename
 	cut -f 2 ../result/${1}/gene/${genename}.bim > ../result/${1}/gene/${genename}.genesnp
 	rm ../result/${1}/gene/${genename}.log ../result/${1}/gene/${genename}.bim ../result/${1}/gene/${genename}.fam ../result/${1}/gene/${genename}.bed
-	plink --bfile ${2} --extract range ../result/allcircuit/${genename}.circuits --make-bed --out ../result/${1}/allcircuits/${genename}.circuits
+	plink --bfile ${2} --maf ${maf} --extract range ../result/allcircuit/${genename}.circuits --make-bed --out ../result/${1}/allcircuits/${genename}.circuits
 	cut -f 2 ../result/${1}/allcircuits/${genename}.circuits.bim > ../result/${1}/allcircuits/${genename}.circuitssnp
 	rm ../result/${1}/allcircuits/${genename}.circuits.log ../result/${1}/allcircuits/${genename}.circuits.bim ../result/${1}/allcircuits/${genename}.circuits.bed ../result/${1}/allcircuits/${genename}.circuits.fam
 	echo 'GENE' >> ../result/${1}/setfile/${genename}.set
@@ -45,12 +46,12 @@ do
 	echo 'END' >> ../result/${1}/setfile/${genename}.set
 
 ###   caculate enhancer & gene   ###
-	plink --bfile ${2} --pheno ${3} --epistasis --set-test --set ../result/${1}/setfile/${genename}.set --epi1 1 --out ../result/${1}/result/${genename}
+	plink --bfile ${2} --maf ${maf} --pheno ${3} --epistasis --set-test --set ../result/${1}/setfile/${genename}.set --epi1 1 --out ../result/${1}/result/${genename}
 
 ###   caculate enhancer-enhancer (ab, bb, cb)  ###
-	plink --bfile ${2} --extract range ../result/circuit1/${genename}.circuit1 --pheno ${3} --epistasis --epi1 1 --out ../result/${1}/result/${genename}.ee1
-	plink --bfile ${2} --extract range ../result/circuit2/${genename}.circuit2 --pheno ${3} --epistasis --epi1 1 --out ../result/${1}/result/${genename}.ee2
-	plink --bfile ${2} --extract range ../result/circuit3/${genename}.circuit3 --pheno ${3} --epistasis --epi1 1 --out ../result/${1}/result/${genename}.ee3
+	plink --bfile ${2} --maf ${maf} --extract range ../result/circuit1/${genename}.circuit1 --pheno ${3} --epistasis --epi1 1 --out ../result/${1}/result/${genename}.ee1
+	plink --bfile ${2} --maf ${maf} --extract range ../result/circuit2/${genename}.circuit2 --pheno ${3} --epistasis --epi1 1 --out ../result/${1}/result/${genename}.ee2
+	plink --bfile ${2} --maf ${maf} --extract range ../result/circuit3/${genename}.circuit3 --pheno ${3} --epistasis --epi1 1 --out ../result/${1}/result/${genename}.ee3
 	rm ../result/${1}/result/${genename}.ee3.log ../result/${1}/result/${genename}.ee2.log ../result/${1}/result/${genename}.ee1.log ../result/${1}/result/${genename}.log ../result/${1}/result/${genename}.epi.qt.summary ../result/${1}/result/${genename}.ee1.epi.qt.summary ../result/${1}/result/${genename}.ee2.epi.qt.summary ../result/${1}/result/${genename}.ee3.epi.qt.summary
 done
 
@@ -68,9 +69,9 @@ do
 	start2=`echo "$line"|awk -F'\t' '{print$5}'`
 	end2=`echo "$line"|awk -F'\t' '{print$6}'`
 	name=${chr1}_${start1}_${end1}_${chr2}_${start2}_${end2}
-	plink --bfile ${2} --extract range ../result/circuit1_2/hicpair/${name}_1.pairs.change --make-bed --out ../result/${1}/ee/${name}_1
+	plink --bfile ${2} --maf ${maf} --extract range ../result/circuit1_2/hicpair/${name}_1.pairs.change --make-bed --out ../result/${1}/ee/${name}_1
 	cut -f 2 ../result/${1}/ee/${name}_1.bim > ../result/${1}/ee/${name}.1snp
-	plink --bfile ${2} --extract range ../result/circuit1_2/hicpair/${name}_2.pairs.change --make-bed --out ../result/${1}/ee/${name}_2
+	plink --bfile ${2} --maf ${maf} --extract range ../result/circuit1_2/hicpair/${name}_2.pairs.change --make-bed --out ../result/${1}/ee/${name}_2
 	cut -f 2 ../result/${1}/ee/${name}_2.bim > ../result/${1}/ee/${name}.2snp
 	if [ -s ../result/${1}/ee/${name}.1snp ] && [ -s ../result/${1}/ee/${name}.2snp ]
 	then
@@ -91,7 +92,7 @@ done
 ls ../result/${1}/ee|while read line
 do 
 	name=`echo $line|awk -F'.' '{print$1}'`
-	plink --bfile ${2} --pheno ${3} --epistasis --set-test --set ../result/${1}/ee/$line --epi1 1 --out ../result/${1}/result/${name}.ee
+	plink --bfile ${2} --maf ${maf} --pheno ${3} --epistasis --set-test --set ../result/${1}/ee/$line --epi1 1 --out ../result/${1}/result/${name}.ee
 	rm ../result/${1}/result/${name}.ee.log ../result/${1}/result/${name}.ee.epi.qt.summary
 done
 
