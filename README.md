@@ -16,7 +16,7 @@ https://github.com/studentyaoshi/IACRC
 
 ## Author
 
-Shan-Shan Dong, Shi Yao, Tie-Lin Yang </br>
+Shan-Shan Dong, Shi Yao, Yan Guo, Tie-Lin Yang </br>
 Key Laboratory of Biomedical Information Engineering of Ministry of Education, School of Life Science and Technology, Xi'an Jiaotong University, Xi'an, Shaanxi Province, 710049, P. R. China </br>
 yangtielin@mail.xjtu.edu.cn
 
