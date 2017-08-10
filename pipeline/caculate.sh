@@ -4,7 +4,7 @@ echo ''
 
 echo Reading in files in
 gene_position=`grep GENE_POSITION ../original/files|awk -F ' ' '{print$2}'`
-maf=`grep MAF_threshold ../original/files|awk -F ' ' 'print{$2}'`
+maf=`grep MAF_threshold ../original/files|awk -F ' ' '{print$2}'`
 echo ''
 
 echo Creating files
