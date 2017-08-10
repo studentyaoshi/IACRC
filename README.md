@@ -14,7 +14,16 @@ https://github.com/studentyaoshi/IACRC
 
 # Contact
 
-You can contact yangtielin@mail.xjtu.edu.cn when you have any questions, suggestions, comments, etc. Please describe in details, and attach your command line and log messages if possible.
+## Author
+
+Shan-Shan Dong, Shi Yao, Tie-Lin Yang </br>
+Key Laboratory of Biomedical Information Engineering of Ministry of Education, School of Life Science and Technology, Xi'an Jiaotong University, Xi'an, Shaanxi Province, 710049, P. R. China </br>
+yangtielin@mail.xjtu.edu.cn
+
+## Maintainer
+
+Shan-Shan Dong, Shi Yao
+You can contact dongss@xjtu.edu.cn or studentyaoshi@stu.xjtu.edu.cn when you have any questions, suggestions, comments, etc. Please describe in details, and attach your command line and log messages if possible.
 
 # Requiremnets
 
