@@ -3,3 +3,7 @@ HIC GM12878_HIC.bed
 HMM_ENHANCER E116_enhancer.bed
 GENE_ENHANCER GM12878_gene_enhancer.txt
 SUPER_ENHANCER obesity.SE.bed
+
+Disease_Type continuous
+LD_threshold 0.5
+MAF_threshold 0.01
