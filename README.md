@@ -39,7 +39,7 @@ cat /your/local/path/original/files
 ```
 ```
 GENE_POSITION	gene_information
-HIC				GM12878_HIC.bed
+HIC		GM12878_HIC.bed
 HMM_ENHANCER	E116_enhancer.bed
 GENE_ENHANCER	GM12878_gene_enhancer.txt
 SUPER_ENHANCER	obesity.SE.bed
