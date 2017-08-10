@@ -31,21 +31,7 @@ cd /your/local/path/pipeline
 ### Prepare original files
 There are five original files you need to prepare before starting calculation, according to the disease you are studing. These files including gene information, Hi-C pairs, enhancer annotation, gene-enhancer information and gene-super enhancer information. The description and data format are as follows.
 
-These five files need to be moved to /your/local/path/original/ after preparation and then you need to change the file names in /your/local/path/original/files accordingly. For example, the following file indicates that the five files are gene_information, GM12878_HIC.bed, E116_enhancer.bed, GM12878_gene_enhancer.txt, obesity.SE.bed.
-
-
-```
-cat /your/local/path/original/files
-```
-```
-GENE_POSITION	gene_information
-HIC		GM12878_HIC.bed
-HMM_ENHANCER	E116_enhancer.bed
-GENE_ENHANCER	GM12878_gene_enhancer.txt
-SUPER_ENHANCER	obesity.SE.bed
-```
-
-##### Gene information
+#### Gene information
 
 Gene information contains four columns divided by tab including the gene name, chromosome, the start and end position of gene without header:
 
@@ -58,7 +44,7 @@ AL669831.1	chr1	738532	739137
 ...
 ```
 
-##### Hi-C pairs
+#### Hi-C pairs
 
 Hi-C pairs contains six columns divided by tab including the chromosome, the start position and the end position of the two regions without  header:
 
@@ -71,7 +57,7 @@ chr1	2130000	2135000	chr1	2515000	2520000
 ...
 ```
 
-##### Enhancer annotation
+#### Enhancer annotation
 
 Enhancer annotation is .bed file contains the chromatin states downloaded from Roadmap, http://egg2.wustl.edu/roadmap/data/byFileType/chromhmmSegmentations/ChmmModels/coreMarks/jointModel/final/. The format of .bed can be found here http://www.ensembl.org/info/website/upload/bed.html.
 
@@ -86,7 +72,7 @@ chr10	264600	265200	7_Enh	0	.	264600	265200	255,255,0
 ...
 ```
 
-##### Gene-enhancer
+#### Gene-enhancer
 Gene-enhancer contains two columns divided by tab including the gene name and the enhancer region downloaded from http://genetics.case.edu/prestige which including gene-enhancer information in 13 cell lines.
 
 ```
@@ -98,7 +84,7 @@ COX15		chr10:101409861-101410384
 ...
 ```
 
-##### Gene-super enhancer
+#### Gene-super enhancer
 Gene-super enhancer contains three columns divided by tab including chromsome, the start and the end position of the super enhancer.
 
 ```
@@ -108,6 +94,19 @@ chr3	16099720	16182650
 chr4	7804602		7914384
 chr5	172284905	172383585
 ...
+```
+These five files need to be moved to /your/local/path/original/ after preparation and then you need to change the file names in /your/local/path/original/files accordingly. For example, the following file indicates that the five files are gene_information, GM12878_HIC.bed, E116_enhancer.bed, GM12878_gene_enhancer.txt, obesity.SE.bed.
+
+```
+cat /your/local/path/original/files
+```
+
+```
+GENE_POSITION	gene_information
+HIC		GM12878_HIC.bed
+HMM_ENHANCER	E116_enhancer.bed
+GENE_ENHANCER	GM12878_gene_enhancer.txt
+SUPER_ENHANCER	obesity.SE.bed
 ```
 
 # Start caculating
