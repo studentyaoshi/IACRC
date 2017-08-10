@@ -2,7 +2,7 @@
 
 # Introduction
 
-Genome-wide association studies (GWASs) is an effective strategy to dentify susceptibility for human complex diseases. However, missing heritability is still a big problem. Here we developed a pipeline named interaction analyses within chromatin regulatory circuitry (IACRC), to identify geenetic variants impacting complex traits. IACRC would automatically selected chromatin regulatory circuits regions with Hi-C datasets, enhancer data, and super enhancer regions. SNP × SNP interaction analyses were then performed  in regions within chromatin regulatory ciircuits.
+Genome-wide association studies (GWASs) is an effective strategy to identify susceptibility for human complex diseases. However, missing heritability is still a big problem. Here we developed a pipeline named interaction analyses within chromatin regulatory circuitry (IACRC), to identify genetic variants impacting complex traits. IACRC would automatically selected chromatin regulatory circuits regions with Hi-C datasets, enhancer data, and super enhancer regions. SNP × SNP interaction analyses were then performed in regions within chromatin regulatory circuits.
 
 # License
 
