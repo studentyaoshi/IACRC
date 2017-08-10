@@ -94,3 +94,6 @@ do
 	plink --bfile ${2} --pheno ${3} --epistasis --set-test --set ../result/${1}/ee/$line --epi1 1 --out ../result/${1}/result/${name}.ee
 	rm ../result/${1}/result/${name}.ee.log ../result/${1}/result/${name}.ee.epi.qt.summary
 done
+
+echo get result
+sh getresult.sh ${1} ${2} 
