@@ -1,4 +1,4 @@
-# IACRC
+# Interaction Analyses within Chromatin Regulatory Circuitry (IACRC)
 
 # Introduction
 
