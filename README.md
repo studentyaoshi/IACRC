@@ -141,7 +141,7 @@ Note: LD, Linkage disequilibrium; MAF, Minor allele frequency.
 sh iacrc.sh name genotype phenotype
 ```
 
-Name: is a character of the name of your data.
+Name: a character of the name of your data.
 
 Genotype: the absolute path of your binary genotype data, including .bed .bim .fam (http://zzz.bwh.harvard.edu/plink/data.shtml#bed).
 
