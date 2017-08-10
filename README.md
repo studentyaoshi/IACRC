@@ -130,9 +130,9 @@ LD_threshold	0.5
 MAF_threshold	0.05
 ```
 
-Disease_Type: 'classified', indicates the disease you are studing is case/control test; 'continuous', indicates the disease you are studing is quantitative trait. Default value is 'continuous'.</br>
-LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that exclude this caculation. Default value is 0.5.</br>
-MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs. Default value is 0.05.
+Disease_Type: a character, which is 'classified', indicates the disease you are studing is case/control test; or 'continuous', indicates the disease you are studing is quantitative trait. Default value is 'continuous'.</br>
+LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that need to be excluded from this caculation. Default value is 0.5.</br>
+MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs that need to be caculated. Default value is 0.05.
 
 Note: LD, Linkage disequilibrium; MAF, Minor allele frequency.
 
