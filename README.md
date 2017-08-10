@@ -131,10 +131,8 @@ LD_threshold	0.5
 MAF_threshold	0.05
 ```
 
-Disease_Type: 'classified', indicates the disease you are studing is case/control test; 'continuous', indicates the disease you are studing is quantitative trait. Default value is 'continuous'.
-
-LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that exclude this caculation. Default value is 0.5.
-
+Disease_Type: 'classified', indicates the disease you are studing is case/control test; 'continuous', indicates the disease you are studing is quantitative trait. Default value is 'continuous'.</br>
+LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that exclude this caculation. Default value is 0.5.</br>
 MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs. Default value is 0.05.
 
 Note: LD, Linkage disequilibrium; MAF, Minor allele frequency.
@@ -144,8 +142,8 @@ sh iacrc.sh name genotype phenotype
 ```
 
 Name: a character of the name of your data. </br>
-Genotype: the absolute path of your binary genotype data, including .bed .bim .fam (http://zzz.bwh.harvard.edu/plink/data.shtml#bed). -></br>
-Phenotype: the absolute path of your phenotype, which contains three columns, Family ID, Individual ID and Phenotype (http://zzz.bwh.harvard.edu/plink/data.shtml#pheno).
+Genotype: the absolute path of your binary genotype data, including .bed .bim .fam, the format can be found herehttp://zzz.bwh.harvard.edu/plink/data.shtml#bed. </br>
+Phenotype: the absolute path of your phenotype, which contains three columns, Family ID, Individual ID and Phenotype, the format can be found here http://zzz.bwh.harvard.edu/plink/data.shtml#pheno.
 
 You now get the results of IACRC in /your/local/path/result/name/name.allepi
 
