@@ -22,13 +22,13 @@ PLINK, https://www.cog-genomics.org/plink2; Python2.7, https://www.python.org/do
 
 # Preparation
 
-### Setup floder framework
+## Setup floder framework
 
 ```
 cd /your/local/path/pipeline
 ```
 
-### Prepare original files
+## Prepare original files
 There are five original files you need to prepare before starting calculation, according to the disease you are studing. These files including gene information, Hi-C pairs, enhancer annotation, gene-enhancer information and gene-super enhancer information. The description and data format are as follows.
 
 #### Gene information
@@ -111,7 +111,7 @@ SUPER_ENHANCER	obesity.SE.bed
 
 # Start caculating
 
-### Get circuitry
+## Get circuitry
 ```
 sh getcircuit.sh
 ```
@@ -120,7 +120,7 @@ You now get a folder named /your/local/path/result which contains different type
 Please wait until this job finishes.
 This step can be long. So, it is recommend to use smaller files to test this software first.
 
-### Caculate
+## Caculate
 
 There are three parameters you need to change in /your/local/path/original/files before caculate, which are Disease_Type, LD_threshold and MAF_threshold. For example:
 
