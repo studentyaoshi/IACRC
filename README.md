@@ -142,7 +142,7 @@ sh iacrc.sh name genotype phenotype
 ```
 
 Name: a character of the name of your data. </br>
-Genotype: the absolute path of your binary genotype data, including .bed .bim .fam, the format can be found herehttp://zzz.bwh.harvard.edu/plink/data.shtml#bed. </br>
+Genotype: the absolute path of your binary genotype data, including .bed .bim .fam, the format can be found here http://zzz.bwh.harvard.edu/plink/data.shtml#bed. </br>
 Phenotype: the absolute path of your phenotype, which contains three columns, Family ID, Individual ID and Phenotype, the format can be found here http://zzz.bwh.harvard.edu/plink/data.shtml#pheno.
 
 You now get the results of IACRC in /your/local/path/result/name/name.allepi
