@@ -38,11 +38,11 @@ These five files need to be moved to /your/local/path/original/ after preparatio
 cat /your/local/path/original/files
 ```
 ```
-GENE_POSITION gene_information
-HIC GM12878_HIC.bed
-HMM_ENHANCER E116_enhancer.bed
-GENE_ENHANCER GM12878_gene_enhancer.txt
-SUPER_ENHANCER obesity.SE.bed
+GENE_POSITION	gene_information
+HIC				GM12878_HIC.bed
+HMM_ENHANCER	E116_enhancer.bed
+GENE_ENHANCER	GM12878_gene_enhancer.txt
+SUPER_ENHANCER	obesity.SE.bed
 ```
 
 ##### Gene information
@@ -126,9 +126,9 @@ This step can be long. So, it is recommend to use smaller files to test this sof
 There are three parameters you need to change in /your/local/path/original/files before caculate, which are Disease_Type, LD_threshold and MAF_threshold. For example:
 
 ```
-Disease_Type continuous
-LD_threshold 0.5
-MAF_threshold 0.05
+Disease_Type	continuous
+LD_threshold	0.5
+MAF_threshold	0.05
 ```
 
 Disease_Type: 'classified', indicates the disease you are studing is case/control test; 'continuous', indicates the disease you are studing is quantitative trait. Default value is 'continuous'.
