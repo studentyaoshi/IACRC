@@ -121,7 +121,7 @@ This step can be long. So, it is recommend to use smaller files to test this sof
 
 ### Caculate
 
-There are three parameters you need to change in /your/local/path/original/files before caculate,which are Disease_Type, LD_threshold and MAF_threshold. For example:
+There are three parameters you need to change in /your/local/path/original/files before caculate, which are Disease_Type, LD_threshold and MAF_threshold. For example:
 
 ```
 Disease_Type continuous
@@ -129,12 +129,20 @@ LD_threshold 0.5
 MAF_threshold 0.05
 ```
 
-Disease_Type: 'classified', indicates the disease you are studing is case/control test; 'continuous', indicates the disease you are studing is quantitative trait.
-LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that exclude this caculation.
-MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs.
+Disease_Type: 'classified', indicates the disease you are studing is case/control test; 'continuous', indicates the disease you are studing is quantitative trait. Default value is 'continuous'.
+LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that exclude this caculation. Default value is 0.5.
+MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs. Default value is 0.05.
 
 Note: LD, Linkage disequilibrium; MAF, Minor allele frequency.
+
 ```
 sh iacrc.sh name genotype phenotype
 ```
+
+name: is a character of the name of your data.
+genotype: the absolute path of your binary genotype data, including .bed .bim .fam (http://zzz.bwh.harvard.edu/plink/data.shtml#bed).
+phenotype: the absolute path of your phenotype, which contains three columns, Family ID, Individual ID and Phenotype (http://zzz.bwh.harvard.edu/plink/data.shtml#pheno).
+
 You now get the results of IACRC in /your/local/path/result/name/name.allepi
+
+Please wait until this job finishes. This step can be long. So, it is recommend to use smaller files to test this software first.
