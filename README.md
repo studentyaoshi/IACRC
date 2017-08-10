@@ -2,7 +2,7 @@
 
 # Introduction
 
-Genome-wide association studies (GWASs) is an effective strategy to identify susceptibility for human complex diseases. However, missing heritability is still a big problem. Here we developed a pipeline named interaction analyses within chromatin regulatory circuitry (IACRC), to identify genetic variants impacting complex traits. IACRC would automatically selected chromatin regulatory circuits regions with Hi-C datasets, enhancer data, and super enhancer regions. SNP × SNP interaction analyses were then performed in regions within chromatin regulatory circuits.
+Genome-wide association studies (GWASs) is an effective strategy to identify susceptibility loci for human complex diseases. However, missing heritability is still a big problem. Here we developed a pipeline named interaction analyses within chromatin regulatory circuitry (IACRC), to identify genetic variants impacting complex traits. IACRC would automatically selected chromatin regulatory circuits regions with Hi-C datasets, enhancer data, and super enhancer regions. SNP × SNP interaction analyses were then performed in regions within chromatin regulatory circuits.
 
 # License
 
@@ -31,7 +31,7 @@ cd /your/local/path/pipeline
 ### Prepare original files
 There are five original files you need to prepare before starting calculation, according to the disease you are studing. These files including gene information, Hi-C pairs, enhancer annotation, gene-enhancer information and gene-super enhancer information. The description and data format are as follows.
 
-These five files need to be moved to /your/local/path/original after preparation and then you need to change the file names in /your/local/path/original/files accordingly. For example, the following file indicates that the five files are gene_information, GM12878_HIC.bed, E116_enhancer.bed, GM12878_gene_enhancer.txt, obesity.SE.bed.
+These five files need to be moved to /your/local/path/original/ after preparation and then you need to change the file names in /your/local/path/original/files accordingly. For example, the following file indicates that the five files are gene_information, GM12878_HIC.bed, E116_enhancer.bed, GM12878_gene_enhancer.txt, obesity.SE.bed.
 
 
 ```
@@ -47,7 +47,7 @@ SUPER_ENHANCER obesity.SE.bed
 
 ##### Gene information
 
-Gene information contains four columns divided by tab including the gene name, chromosome, the start position of gene, and the end position of gene without header:
+Gene information contains four columns divided by tab including the gene name, chromosome, the start and end position of gene without header:
 
 ```
 OR4F5	chr1	69091	70008
@@ -73,7 +73,9 @@ chr1	2130000	2135000	chr1	2515000	2520000
 
 ##### Enhancer annotation
 
-Enhancer annotation is .bed file contains the chromatin states downloaded from Roadmap, http://egg2.wustl.edu/roadmap/data/byFileType/chromhmmSegmentations/ChmmModels/coreMarks/jointModel/final/. In our paper, we used the chromatin states of GM12878 and '7_Enh' annotation in the forth column as input.
+Enhancer annotation is .bed file contains the chromatin states downloaded from Roadmap, http://egg2.wustl.edu/roadmap/data/byFileType/chromhmmSegmentations/ChmmModels/coreMarks/jointModel/final/. The format of .bed can be found here http://www.ensembl.org/info/website/upload/bed.html.
+
+In our paper, we used the chromatin states of GM12878 and '7_Enh' annotation in the forth column as input.
 
 ```
 chr10	174200	174400	7_Enh	0	.	174200	174400	255,255,0
