@@ -27,7 +27,7 @@ You can contact dongss@xjtu.edu.cn or studentyaoshi@stu.xjtu.edu.cn when you hav
 
 # Requiremnets
 
-PLINK, https://www.cog-genomics.org/plink2; Python2.7, https://www.python.org/downloads/; Bedtools, http://bedtools.readthedocs.io/en/latest/content/installation.html; and METAL if you would like to do meta analysis, http://csg.sph.umich.edu/abecasis/metal/download/.
+PLINK, https://www.cog-genomics.org/plink2; Python2.7, https://www.python.org/downloads/; Bedtools, http://bedtools.readthedocs.io/en/latest/content/installation.html; METAL if you would like to do meta analysis, http://csg.sph.umich.edu/abecasis/metal/download/; and R if you would like to include covariates in case/control test, https://www.r-project.org/.
 
 # Preparation
 
