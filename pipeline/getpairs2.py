@@ -8,6 +8,6 @@ for i in a:
 	for w in c:
 		snp2=w.rstrip('\n')
 		if snp2 not in b:
-			print snp+'\t'+snp2
+			print snp+','+snp2
 	c.close()
 a.close()

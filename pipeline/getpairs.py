@@ -5,6 +5,6 @@ for i in a:
 	b=open(sys.argv[2],'rt')
 	for w in b:
 		snp2=w.rstrip('\n')
-		print snp1+'\t'+snp2
+		print snp1+','+snp2
 	b.close()
 a.close()
