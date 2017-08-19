@@ -158,6 +158,7 @@ sh iacrc.sh name genotype phenotype
 * Phenotype: </br>
 When the Disease_Type is `classified` or `continuous`, the phenotype indicates the absolute path of the phenotype data, which contains three columns, Family ID, Individual ID and Phenotype, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#pheno).</br>
 When the Disease_Type is `classified_cov`, the phenotype indicates the phenotype with covariates and header divided by tab:
+
 	* Note: the `PHENO` in `classified_cov` is 1/0 rather than 2/1 in [phenotype](http://zzz.bwh.harvard.edu/plink/data.shtml#pheno).
 
 ```
