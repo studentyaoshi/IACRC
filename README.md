@@ -158,6 +158,7 @@ sh iacrc.sh name genotype phenotype
 * Phenotype: </br>
 When the Disease_Type is `classified` or `continuous`, the phenotype indicates the absolute path of the phenotype data, which contains three columns, Family ID, Individual ID and Phenotype, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#pheno).</br>
 When the Disease_Type is `classified_cov`, the phenotype indicates the phenotype with covariates and header divided by tab:
+	* Note: the `PHENO` in `classified_cov` is 1/0 rather than 2/1 in [phenotype](http://zzz.bwh.harvard.edu/plink/data.shtml#pheno).
 
 ```
 IID	PHENO	COV1	COV2	COV3	COV4	COV5	COV6	COV7	COV8
@@ -167,8 +168,7 @@ IID	PHENO	COV1	COV2	COV3	COV4	COV5	COV6	COV7	COV8
 4809	1	1	67	0.0169	-0.0027	-0.0099	-0.0146	0.0001	1
 4810	0	2	62	0.0116	-0.0061	-0.0180	0.00076	-0.0042	1
 ```
-</br>
-* Note: the `PHENO` in `classified_cov` is 1/0 rather than 2/1 in [phenotype](http://zzz.bwh.harvard.edu/plink/data.shtml#pheno).
+
 You now get the results of IACRC in /your/local/path/result/name/name.allepi after this step.
 
 Please wait until this job finishes. This step can be long. So, it is recommend to use smaller files to test this software first.
