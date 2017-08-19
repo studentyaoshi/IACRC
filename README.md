@@ -143,11 +143,11 @@ LD_threshold	0.5
 MAF_threshold	0.05
 ```
 
-Disease_Type: a character, which `classified`, indicates a case/control test; `classified_cov` indicates a case/control test with covariates; or `continuous`, indicates the disease you are studing is quantitative trait. Default value is 'continuous'.</br>
+* Disease_Type: a character, which `classified`, indicates a case/control test; `classified_cov` indicates a case/control test with covariates; or `continuous`, indicates the disease you are studing is quantitative trait. Default value is 'continuous'.</br>
 </br>
-LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that need to be excluded from this caculation. Default value is 0.5.</br>
+* LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that need to be excluded from this caculation. Default value is 0.5.</br>
 </br>
-MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs that need to be caculated. Default value is 0.05.
+* MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs that need to be caculated. Default value is 0.05.
 
 Note: LD, Linkage disequilibrium; MAF, Minor allele frequency.
 
@@ -155,9 +155,9 @@ Note: LD, Linkage disequilibrium; MAF, Minor allele frequency.
 sh iacrc.sh name genotype phenotype
 ```
 
-Name: a character of the name of your data. </br></br>
-Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#bed). </br></br>
-Phenotype: </br>
+* Name: a character of the name of your data. </br></br>
+* Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#bed). </br></br>
+* Phenotype: </br>
 When the Disease_Type is `classified` or `continuous`, the phenotype indicates the absolute path of the phenotype data, which contains three columns, Family ID, Individual ID and Phenotype, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#pheno).</br>
 When the Disease_Type is `classified_cov`, the phenotype indicates the phenotype with covariates and header divided by tab:
 
