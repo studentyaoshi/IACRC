@@ -27,7 +27,11 @@ You can contact dongss@xjtu.edu.cn or studentyaoshi@stu.xjtu.edu.cn when you hav
 
 # Requiremnets
 
-PLINK, https://www.cog-genomics.org/plink2; Python2.7, https://www.python.org/downloads/; Bedtools, http://bedtools.readthedocs.io/en/latest/content/installation.html; METAL if you would like to do meta analysis, http://csg.sph.umich.edu/abecasis/metal/download/; and R if you would like to include covariates in case/control test, https://www.r-project.org/.
+[PLINK](https://www.cog-genomics.org/plink2);</br>
+[Python2.7](https://www.python.org/downloads/);</br>
+[Bedtools](http://bedtools.readthedocs.io/en/latest/content/installation.html);</br>
+[METAL](http://csg.sph.umich.edu/abecasis/metal/download/) if you would like to do meta analysis;</br>
+and [R](https://www.r-project.org/) if you would like to include covariates in case/control test.
 
 # Preparation
 
@@ -68,7 +72,7 @@ chr1	2130000	2135000	chr1	2515000	2520000
 
 #### Enhancer annotation
 
-Enhancer annotation is .bed file contains the chromatin states downloaded from Roadmap, http://egg2.wustl.edu/roadmap/data/byFileType/chromhmmSegmentations/ChmmModels/coreMarks/jointModel/final/. The format of .bed can be found here http://www.ensembl.org/info/website/upload/bed.html.
+Enhancer annotation is .bed file contains the chromatin states downloaded from [Roadmap](http://egg2.wustl.edu/roadmap/data/byFileType/chromhmmSegmentations/ChmmModels/coreMarks/jointModel/final/). The format of .bed can be found [here](http://www.ensembl.org/info/website/upload/bed.html).
 
 In our paper, we used the chromatin states of GM12878 and '7_Enh' annotation in the forth column as input.
 
@@ -82,7 +86,7 @@ chr10	264600	265200	7_Enh	0	.	264600	265200	255,255,0
 ```
 
 #### Gene-enhancer
-Gene-enhancer contains two columns divided by tab including the gene name and the enhancer region downloaded from http://genetics.case.edu/prestige which including gene-enhancer information in 13 cell lines.
+Gene-enhancer contains two columns divided by tab including the gene name and the enhancer region downloaded from [here](http://genetics.case.edu/prestige) which including gene-enhancer information in 13 cell lines.
 
 ```
 SLC25A28	chr10:101314742-101317123
@@ -152,9 +156,9 @@ sh iacrc.sh name genotype phenotype
 ```
 
 Name: a character of the name of your data. </br></br>
-Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found here http://zzz.bwh.harvard.edu/plink/data.shtml#bed. </br></br>
+Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#bed). </br></br>
 Phenotype: </br>
-When the Disease_Type is `classified` or `continuous`, the phenotype indicates the absolute path of the phenotype data, which contains three columns, Family ID, Individual ID and Phenotype, the format can be found here http://zzz.bwh.harvard.edu/plink/data.shtml#pheno.</br>
+When the Disease_Type is `classified` or `continuous`, the phenotype indicates the absolute path of the phenotype data, which contains three columns, Family ID, Individual ID and Phenotype, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#pheno).</br>
 When the Disease_Type is `classified_cov`, the phenotype indicates the phenotype with covariates and header divided by tab:
 
 ```
