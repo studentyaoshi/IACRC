@@ -170,6 +170,6 @@ IID	PHENO	COV1	COV2	COV3	COV4	COV5	COV6	COV7	COV8
 4810	0	2	62	0.0116	-0.0061	-0.0180	0.00076	-0.0042	1
 ```
 
-You now get the results of IACRC in /your/local/path/result/name/name.allepi after this step.
+You now get the results of `IACRC` in /your/local/path/result/name/name.allepi after this step.
 
 Please wait until this job finishes. This step can be long. So, it is recommend to use smaller files to test this software first.
