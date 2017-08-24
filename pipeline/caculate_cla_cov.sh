@@ -96,13 +96,13 @@ do
 	rm ../result/${1}/cov/${line}.log
 	python changeraw.py ${3} ../result/${1}/cov/${line}.raw ../result/${1}/cov/${line}.recode
 	covs=`head -1 46149_cov_01pheno.txt|cut -f 3-|sed 's/\t/ + /g'`
-	Rscript epistasis.R ${line} ../result/${1}/cov/${line}.recode ../result/${1}/cov/${line}.result $covs
+	Rscript epistasis.R ${line} ../result/${1}/cov/${line}.recode ../result/${1}/result/${line}.result $covs
 	rm ../result/${1}/cov/${line}.raw ../result/${1}/cov/${line}.recode
 	snp1=`echo "$line"|awk -F, '{print$1}'`
 	snp2=`echo "$line"|awk -F, '{print$2}'`
 	echo -n ${snp1}_${snp2} >> ../result/${1}/${1}.all.result
 	echo -n ' ' >> ../result/${1}/${1}.all.result
-	echo -n `grep "snp1:snp2" ./${1}/result/${line}.result|cut -d ' ' -f 2` >> ../result/${1}/${1}.all.result
+	echo -n `grep "snp1:snp2" ../result/${1}/result/${line}.result|cut -d ' ' -f 2` >> ../result/${1}/${1}.all.result
 	echo '' >> ../result/${1}/${1}.all.result
 done
 
