@@ -1,0 +1,87 @@
+File	Tissue	Subtype
+BI_Adipose_Nuclei	Adipose	NA
+UCSD_Adrenal_Gland	Adrenal gland	NA
+UCSD_Aorta	Aorta	NA
+Astrocytes	Astrocyte	NA
+UCSD_Bladder	Bladder	NA
+CD14	Blood	Monocyte
+CD20	Blood	B cell
+BI_CD4p_CD25-_Il17-_PMAstim_Th	Blood	T cell
+BI_CD34_Primary_RO01536	Blood	HSC
+Osteoblasts	Bone	Osteoblast
+BI_Brain_Hippocampus_Middle	Brain	NA
+UCSD_Sigmoid_Colon	Colon	NA
+H1	ES	NA
+UCSD_Esophagus	Esophagus	NA
+UCSD_Left_Ventricle	Heart	NA
+UCSD_Lung	Lung	NA
+HMEC	Mammary epithelial	NA
+UCSD_Ovary	Ovary	NA
+UCSD_Pancreas	Pancreas	NA
+UCSD_Psoas	Skeletal muscle	NA
+NHDF_Ad	Skin	Fibroblast
+UCSD_Small_Intestine	Small intestine	NA
+UCSD_Spleen	Spleen	NA
+UCSD_Gastric	Stomach	NA
+UCSD_Thymus	Thymus	NA
+HUVEC	Umbilical vein	Endothelial
+BI_Brain_Mid_Frontal_Lobe	Brain	NA
+UCSD_Adipose_Tissue	Adipose	NA
+BI_CD4_Naive_Primary_8pool	Blood	T cell
+BI_CD4_Memory_Primary_7pool	Blood	NA
+BI_CD4_Memory_Primary_8pool	Blood	NA
+BI_CD4_Naive_Primary_7pool	Blood	NA
+BI_CD4p_CD225int_CD127p_Tmem	Blood	NA
+BI_CD4p_CD25-_CD45RAp_Naive	Blood	NA
+BI_CD4p_CD25-_CD45ROp_Memory	Blood	NA
+BI_CD4p_CD25-_Il17p_PMAstim_Th17	Blood	NA
+BI_CD8_Memory_7pool	Blood	NA
+BI_CD8_Naive_7pool	Blood	NA
+BI_CD8_Naive_8pool	Blood	NA
+CD19_Primary	Blood	NA
+CD3	Blood	NA
+CD34_adult	Blood	NA
+CD56	Blood	NA
+CD8_primiary	Blood	NA
+BI_CD34_Primary_RO01480	Blood	HSC
+BI_CD34_Primary_RO01549	Blood	HSC
+DND41	Blood cancer	NA
+GM12878	Blood cancer	NA
+Jurkat	Blood cancer	NA
+MM1S	Blood cancer	NA
+RPMI-8402	Blood cancer	NA
+K562	Blood cancer	NA
+BI_Brain_Cingulate_Gyrus	Brain	NA
+BI_Brain_Angular_Gyrus	Brain	NA
+BI_Brain_Anterior_Caudate	Brain	NA
+BI_Brain_Hippocampus_Middle_150	Brain	NA
+BI_Brain_Inferior_Temporal_Lobe	Brain	NA
+u87	Brain cancer	NA
+HCC1954	Breast cancer	NA
+MCF-7	Breast cancer	NA
+HeLa	Cervical cancer	NA
+Colon_Crypt_2	Colon	NA
+Colon_Crypt_1	Colon	NA
+Colon_Crypt_3	Colon	NA
+HCT-116	Colrectal cancer	NA
+VACO_400	Colrectal cancer	NA
+VACO_503	Colrectal cancer	NA
+VACO_9M	Colrectal cancer	NA
+CD34_fetal	Fetal blood	NA
+Fetal_Intestine	Fetal intestine	NA
+Fetal_Intestine_Large	Fetal large intestine	NA
+Fetal_Muscle	Fetal muscle	NA
+Fetal_Thymus	Fetal thymus	NA
+UCSD_Right_Atrium	Heart	NA
+UCSD_Right_Ventricle	Heart	NA
+HepG2	Liver cancer	NA
+IMR90	Lung	Fibroblast
+NHLF	Lung	Fibroblast
+H2171	Lung cancer	NA
+panc1	Pancreatic cancer	NA
+LnCAP	Prostate cancer	NA
+BI_Skeletal_Muscle	Skeletal muscle	NA
+Skeletal_Muscle_Myoblast	Skeletal muscle	Myoblasts
+HSMMtube	Skeletal muscle	Myotubes
+BI_Duodenum_Smooth_Muscle	Small intestine	NA
+BI_Stomach_Smooth_Muscle	Stomach	NA
