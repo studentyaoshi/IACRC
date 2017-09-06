@@ -86,7 +86,7 @@ chr10	264600	265200	7_Enh	0	.	264600	265200	255,255,0
 ```
 
 #### Gene-enhancer
-Gene-enhancer contains two columns divided by tab including the gene name and the enhancer region. We used enhancer-gene interactions predicted by [PreSTIGE](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3875850/) and the data can be downloaded [here](http://genetics.case.edu/prestige). We downloaded and converted the gene-enhancer interactions in six cell lines (GM12878,K562,HUVEC,HMEK,NHEK,HELA) for convenience in /your/local/path/files/gene_enhancer/.
+Gene-enhancer contains two columns divided by tab including the gene name and the enhancer region. We used enhancer-gene interactions predicted by [PreSTIGE](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3875850/) and the data can be downloaded [here](http://genetics.case.edu/prestige). We downloaded and converted the gene-enhancer interactions in six cell lines (GM12878, K562, HUVEC, HMEK, NHEK, HELA) for convenience in /your/local/path/files/gene_enhancer/.
 
 ```
 SLC25A28	chr10:101314742-101317123
