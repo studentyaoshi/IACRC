@@ -86,7 +86,7 @@ chr10	264600	265200	7_Enh	0	.	264600	265200	255,255,0
 ```
 
 #### Gene-enhancer
-Gene-enhancer contains two columns divided by tab including the gene name and the enhancer region downloaded from [here](http://genetics.case.edu/prestige) which including gene-enhancer information in 13 cell lines.
+Gene-enhancer contains two columns divided by tab including the gene name and the enhancer region. We used enhancer-gene interactions predicted by [PreSTIGE](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3875850/) and the data can be downloaded [here](http://genetics.case.edu/prestige). We downloaded and converted the gene-enhancer interactions in six cell lines (GM12878,K562,HUVEC,HMEK,NHEK,HELA) for convenience in /your/local/path/files/gene_enhancer/.
 
 ```
 SLC25A28	chr10:101314742-101317123
@@ -120,6 +120,11 @@ HIC		GM12878_HIC.bed
 HMM_ENHANCER	E116_enhancer.bed
 GENE_ENHANCER	GM12878_gene_enhancer.txt
 SUPER_ENHANCER	obesity.SE.bed
+```
+We have made the analyses being able to run on multiple CPUs. Specify the number of threads (1-20) in /your/local/path/original/files which the program will be running on multiple CPUs.
+
+```
+Thread 20
 ```
 
 # Start caculating
