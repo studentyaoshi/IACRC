@@ -76,6 +76,7 @@ Enhancer annotation is .bed file contains the chromatin states downloaded from [
 
 In our paper, we used the chromatin states of GM12878 and '7_Enh' annotation in the forth column as input.
 
+We already downloaded and converted the enhancers in 9 cell lines (NHEK, K562, Islet, IMR90, HUVEC, HMEC, HELA, GM12878, and A549) according to Hi-C pairs in /your/local/path/files/HMM/.
 ```
 chr10	174200	174400	7_Enh	0	.	174200	174400	255,255,0
 chr10	175600	176000	7_Enh	0	.	175600	176000	255,255,0
