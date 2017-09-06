@@ -59,7 +59,7 @@ AL669831.1	chr1	738532	739137
 
 #### Hi-C pairs
 
-Hi-C pairs contains six columns divided by tab including the chromosome, the start position and the end position of the two regions without  header:
+Hi-C pairs contains six columns divided by tab including the chromosome, the start position and the end position of the two regions without header. We downloaded the autosomal interactions in 9 cell lines (NHEK, K562, Islet, IMR90, HUVEC, HMEC, HELA, GM12878, and A549) in /your/local/path/files/hic/ from [4DGenome](http://4dgenome.research.chop.edu/) and some recent papers, [chromatin looping](https://www.ncbi.nlm.nih.gov/pubmed/25497547), [3D Genome Architecture](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4734140/), [long-range promoter](https://www.ncbi.nlm.nih.gov/pubmed/25938943), [cis-regulatory landscape](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4281301/), [Genome Architecture Links](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5123897/) [long-range interactions](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4674669/), and [Hi-C from A549](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92819).
 
 ```
 chr1	1050000	1060000	chr1	1180000	1190000
