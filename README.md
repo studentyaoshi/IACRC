@@ -121,13 +121,13 @@ HMM_ENHANCER	E116_enhancer.bed
 GENE_ENHANCER	GM12878_gene_enhancer.txt
 SUPER_ENHANCER	obesity.SE.bed
 ```
-We have made the analyses being able to run on multiple CPUs. Specify the number of threads (1-20) in /your/local/path/original/files which the program will be running on multiple CPUs.
 
+# Start caculating
+
+We have made the analyses being able to run on multiple CPUs. Specify the number of threads (1-20) in /your/local/path/original/files which the program will be running on multiple CPUs.
 ```
 Thread 20
 ```
-
-# Start caculating
 
 ## Get circuitry
 ```
