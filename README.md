@@ -98,7 +98,7 @@ COX15		chr10:101409861-101410384
 ```
 
 #### Gene-super enhancer
-Gene-super enhancer contains three columns divided by tab including chromsome, the start and the end position of the super enhancer.
+Gene-super enhancer contains three columns divided by tab including chromsome, the start and the end position of the super enhancer. We used the super enhancer data from [this paper](https://www.ncbi.nlm.nih.gov/pubmed/24119843). We downloaded and converted the super enhancer data in 86 tissues/cell lines in /your/local/path/files/super_enhancer/ which the detail of the tissues/cell lines can be found in /your/local/path/files/super_enhancer/86-Cell.anno.
 
 ```
 chr1	68148186	68237688
