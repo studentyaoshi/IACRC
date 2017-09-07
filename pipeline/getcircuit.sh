@@ -9,7 +9,10 @@ hicfile=`grep HIC ../original/files|awk -F ' ' '{print$2}'`
 hmm_enhancer=`grep HMM_ENHANCER ../original/files|awk -F ' ' '{print$2}'`
 gene_enhancer=`grep GENE_ENHANCER ../original/files|awk -F ' ' '{print$2}'`
 super_enhancer=`grep SUPER_ENHANCER ../original/files|awk -F ' ' '{print$2}'`
+thread_number=`grep Thread ../original/files|awk -F ' ' '{print$2}'`
 echo ''
+
+Numbers=(ZERO a b c d e f g h i j k l m n o p q r s t)
 
 echo Creating files
 mkdir ../result
@@ -27,7 +30,11 @@ echo ''
 echo Get chromatin regulatory circuitry A
 echo Please wait ...
 echo This step can be long, plz try smaller file first ...
-cat ../original/${gene_position}|while read line
+row_number=`cat ../original/${gene_position}|wc -l`
+let filenumber=${row_number}/${thread_number}+1
+split -l ${filenumber} ../original/${gene_position} ../original/
+for ((i=1; i<=thread_number; i++))
+do cat ../original/a${Numbers[$i]}|while read line
 do 
 	gene=`echo $line|awk '{print$1}'`
 	chr=`echo $line|awk '{print$2}'`
@@ -55,6 +62,7 @@ do
 
 #echo ======combine enhancer-gene aa,ba,ca======
 	cat ../result/circuit1/${genename}.circuit1 ../result/circuit2/${genename}.circuit2 ../result/circuit3/${genename}.circuit3 > ../result/allcircuit/${genename}.circuits
+done &
 done
 echo ''
 
@@ -78,7 +86,11 @@ rm ../result/circuit1_2/hic.anno.1
 python gethicpair.py ../result/circuit1_2/hic.anno.add1 ../result/circuit1_2/hicpair.enhancer
 rm ../result/circuit1_2/hic.anno.add1
 mkdir ../result/circuit1_2/hicpair
-cat ../result/circuit1_2/hicpair.enhancer|while read line
+row_number=`cat ../result/circuit1_2/hicpair.enhancer|wc -l`
+let filenumber=${row_number}/${thread_number}+1
+split -l ${filenumber} ../result/circuit1_2/hicpair.enhancer ../result/circuit1_2/
+for ((i=1; i<=thread_number; i++))
+do cat ../result/circuit1_2/a${Numbers[$i]}|while read line
 do
 	chr1=`echo "$line"|awk -F'\t' '{print$1}'`
 	start1=`echo "$line"|awk -F'\t' '{print$2}'`
@@ -94,5 +106,6 @@ do
 	python changepairs.py ../result/circuit1_2/hicpair/${name}_1.pairs
 	python changepairs.py ../result/circuit1_2/hicpair/${name}_2.pairs
 	rm ../result/circuit1_2/hicpair/${name}_1 ../result/circuit1_2/hicpair/${name}_2 ../result/circuit1_2/hicpair/${name}_1.pairs ../result/circuit1_2/hicpair/${name}_2.pairs
+done &
 done
 echo ''
