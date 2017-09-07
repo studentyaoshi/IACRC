@@ -5,6 +5,7 @@ echo ''
 echo Reading in files in
 gene_position=`grep GENE_POSITION ../original/files|awk -F ' ' '{print$2}'`
 maf=`grep MAF_threshold ../original/files|awk -F ' ' '{print$2}'`
+thread_number=`grep Thread ../original/files|awk -F ' ' '{print$2}'`
 echo ''
 
 echo Creating files
@@ -20,7 +21,8 @@ echo Start caculating interaction within chromatin regulatory circuitry A
 echo Please wait ...
 echo This step can be long, plz try smaller file first ...
 
-cat ../original/${gene_position}|while read line
+for ((i=1; i<=thread_number; i++))
+do cat ../original/a${Numbers[$i]}|while read line
 do 
 	gene=`echo $line|awk '{print$1}'`
 	chr=`echo $line|awk '{print$2}'`
@@ -53,6 +55,7 @@ do
 	plink --bfile ${2} --maf ${maf} --extract range ../result/circuit2/${genename}.circuit2 --pheno ${3} --epistasis --epi1 1 --out ../result/${1}/result/${genename}.ee2
 	plink --bfile ${2} --maf ${maf} --extract range ../result/circuit3/${genename}.circuit3 --pheno ${3} --epistasis --epi1 1 --out ../result/${1}/result/${genename}.ee3
 	rm ../result/${1}/result/${genename}.ee3.log ../result/${1}/result/${genename}.ee2.log ../result/${1}/result/${genename}.ee1.log ../result/${1}/result/${genename}.log ../result/${1}/result/${genename}.epi.qt.summary ../result/${1}/result/${genename}.ee1.epi.qt.summary ../result/${1}/result/${genename}.ee2.epi.qt.summary ../result/${1}/result/${genename}.ee3.epi.qt.summary
+done $
 done
 
 echo Start caculating interaction within chromatin regulatory circuitry B
@@ -60,7 +63,8 @@ echo Please wait ...
 echo This step can be long, plz try smaller file first ...
 
 echo ‘’
-cat ../result/circuit1_2/hicpair.enhancer|while read line
+for ((i=1; i<=thread_number; i++))
+do cat ../result/circuit1_2/a${Numbers[$i]}|while read line
 do
 	chr1=`echo "$line"|awk -F'\t' '{print$1}'`
 	start1=`echo "$line"|awk -F'\t' '{print$2}'`
@@ -87,6 +91,7 @@ do
 		echo no
 		rm ../result/${1}/ee/${name}.1snp ../result/${1}/ee/${name}.2snp ../result/${1}/ee/${name}_1.* ../result/${1}/ee/${name}_2.*
 	fi
+done &
 done
 
 ls ../result/${1}/ee|while read line
