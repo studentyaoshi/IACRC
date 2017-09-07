@@ -3,6 +3,7 @@ echo ''
 echo Reading in files in
 gene_position=`grep GENE_POSITION ../original/files|awk -F ' ' '{print$2}'`
 maf=`grep MAF_threshold ../original/files|awk -F ' ' '{print$2}'`
+thread_number=`grep Thread ../original/files|awk -F ' ' '{print$2}'`
 echo ''
 
 echo Creating files
@@ -19,7 +20,8 @@ echo Start getting interaction within chromatin regulatory circuitry A
 echo Please wait ...
 echo This step can be long, plz try smaller file first ...
 
-cat ../original/${gene_position}|while read line
+for ((i=1; i<=thread_number; i++))
+do cat ../original/a${Numbers[$i]}|while read line
 do
 	gene=`echo $line|awk '{print$1}'`
 	chr=`echo $line|awk '{print$2}'`
@@ -36,7 +38,7 @@ do
 	rm ../result/${1}/allcircuits/${genename}.circuits.log ../result/${1}/allcircuits/${genename}.circuits.bim ../result/${1}/allcircuits/${genename}.circuits.bed ../result/${1}/allcircuits/${genename}.circuits.fam
 	if [ -s ../result/${1}/gene/${genename}.genesnp ] && [ -s ../result/${1}/allcircuits/${genename}.circuitssnp ]
 	then
-		python getpairs.py ../result/${1}/gene/${genename}.genesnp ../result/${1}/allcircuits/${genename}.circuitssnp >> ../result/${1}/${1}.pairs
+		python getpairs.py ../result/${1}/gene/${genename}.genesnp ../result/${1}/allcircuits/${genename}.circuitssnp >> ../result/${1}/${1}.pairs.${Numbers[$i]}
 	else
 		echo no
 	fi
@@ -44,17 +46,18 @@ do
 	plink --bfile ${2} --maf ${maf} --extract range ../result/circuit1/${genename}.circuit1 --make-bed --out ../result/${1}/allcircuits/${genename}.circuits1
 	cut -f 2 ../result/${1}/allcircuits/${genename}.circuits1.bim > ../result/${1}/allcircuits/${genename}.circuitssnp1
 	rm ../result/${1}/allcircuits/${genename}.circuits1.log ../result/${1}/allcircuits/${genename}.circuits1.bim ../result/${1}/allcircuits/${genename}.circuits1.bed ../result/${1}/allcircuits/${genename}.circuits1.fam
-	python getpairs2.py ../result/${1}/allcircuits/${genename}.circuitssnp1 >> ../result/${1}/${1}.pairs
+	python getpairs2.py ../result/${1}/allcircuits/${genename}.circuitssnp1 >> ../result/${1}/${1}.pairs.${Numbers[$i]}
 
 	plink --bfile ${2} --maf ${maf} --extract range ../result/circuit2/${genename}.circuit2 --make-bed --out ../result/${1}/allcircuits/${genename}.circuits2
 	cut -f 2 ../result/${1}/allcircuits/${genename}.circuits2.bim > ../result/${1}/allcircuits/${genename}.circuitssnp2
 	rm ../result/${1}/allcircuits/${genename}.circuits2.log ../result/${1}/allcircuits/${genename}.circuits2.bim ../result/${1}/allcircuits/${genename}.circuits2.bed ../result/${1}/allcircuits/${genename}.circuits2.fam
-	python getpairs2.py ../result/${1}/allcircuits/${genename}.circuitssnp2 >> ../result/${1}/${1}.pairs
+	python getpairs2.py ../result/${1}/allcircuits/${genename}.circuitssnp2 >> ../result/${1}/${1}.pairs.${Numbers[$i]}
 
 	plink --bfile ${2} --maf ${maf} --extract range ../result/circuit3/${genename}.circuit3 --make-bed --out ../result/${1}/allcircuits/${genename}.circuits3
 	cut -f 2 ../result/${1}/allcircuits/${genename}.circuits3.bim > ../result/${1}/allcircuits/${genename}.circuitssnp3
 	rm ../result/${1}/allcircuits/${genename}.circuits3.log ../result/${1}/allcircuits/${genename}.circuits3.bim ../result/${1}/allcircuits/${genename}.circuits3.bed ../result/${1}/allcircuits/${genename}.circuits3.fam
-	python getpairs2.py ../result/${1}/allcircuits/${genename}.circuitssnp3 >> ../result/${1}/${1}.pairs
+	python getpairs2.py ../result/${1}/allcircuits/${genename}.circuitssnp3 >> ../result/${1}/${1}.pairs.${Numbers[$i]}
+done &
 done
 
 echo Start getting interaction within chromatin regulatory circuitry B
@@ -62,7 +65,9 @@ echo Please wait ...
 echo This step can be long, plz try smaller file first ...
 
 echo ‘’
-cat ../result/circuit1_2/hicpair.enhancer|while read line
+
+for ((i=1; i<=thread_number; i++))
+do cat ../result/circuit1_2/a${Numbers[$i]}|while read line
 do
 	chr1=`echo "$line"|awk -F'\t' '{print$1}'`
 	start1=`echo "$line"|awk -F'\t' '{print$2}'`
@@ -77,11 +82,16 @@ do
 	cut -f 2 ../result/${1}/ee/${name}_2.bim > ../result/${1}/ee/${name}.2snp
 	if [ -s ../result/${1}/ee/${name}.1snp ] && [ -s ../result/${1}/ee/${name}.2snp ]
 	then
-		python getpairs.py ../result/${1}/ee/${name}.1snp ../result/${1}/ee/${name}.2snp >> ../result/${1}/${1}.pairs
+		python getpairs.py ../result/${1}/ee/${name}.1snp ../result/${1}/ee/${name}.2snp >> ../result/${1}/${1}.pairs.${Numbers[$i]}
 		rm ../result/${1}/ee/${name}.1snp ../result/${1}/ee/${name}.2snp ../result/${1}/ee/${name}_1.* ../result/${1}/ee/${name}_2.*
 	else
 		rm ../result/${1}/ee/${name}.1snp ../result/${1}/ee/${name}.2snp ../result/${1}/ee/${name}_1.* ../result/${1}/ee/${name}_2.*
 	fi
+done &
+done
+
+for ((i=1; i<=thread_number; i++))
+do cat ../result/${1}/${1}.pairs.${Numbers[$i]} >> ../result/${1}/${1}.pairs
 done
 
 sort ../result/${1}/${1}.pairs|uniq > ../result/${1}/${1}.pairs.uniq
@@ -90,7 +100,11 @@ echo Start caculating
 echo Please wait ...
 echo This step can be long, plz try smaller file first ...
 
-cat ../result/${1}/${1}.pairs.uniq|while read line
+row_number=`cat ../result/${1}/${1}.pairs.uniq|wc -l`
+let filenumber=${row_number}/${thread_number}+1
+split -l ${filenumber} ../result/${1}/${1}.pairs.uniq ../result/${1}/
+for ((i=1; i<=thread_number; i++))
+do cat ../result/${1}/a${Numbers[$i]}|while read line
 do 
 	plink -bfile ${2} --snps $line --recodeA --out ../result/${1}/cov/$line
 	rm ../result/${1}/cov/${line}.log
@@ -100,10 +114,15 @@ do
 	rm ../result/${1}/cov/${line}.raw ../result/${1}/cov/${line}.recode
 	snp1=`echo "$line"|awk -F, '{print$1}'`
 	snp2=`echo "$line"|awk -F, '{print$2}'`
-	echo -n ${snp1}_${snp2} >> ../result/${1}/${1}.all.result
-	echo -n ' ' >> ../result/${1}/${1}.all.result
-	echo -n `grep "snp1:snp2" ../result/${1}/result/${line}.result|cut -d ' ' -f 2` >> ../result/${1}/${1}.all.result
-	echo '' >> ../result/${1}/${1}.all.result
+	echo -n ${snp1}_${snp2} >> ../result/${1}/${1}.all.result.${Numbers[$i]}
+	echo -n ' ' >> ../result/${1}/${1}.all.result.${Numbers[$i]}
+	echo -n `grep "snp1:snp2" ../result/${1}/result/${line}.result|cut -d ' ' -f 2` >> ../result/${1}/${1}.all.result.${Numbers[$i]}
+	echo '' >> ../result/${1}/${1}.all.result.${Numbers[$i]}
+done &
+done
+
+for ((i=1; i<=thread_number; i++))
+do cat ../result/${1}/${1}.all.result.${Numbers[$i]} >> ../result/${1}/${1}.all.result
 done
 
 python change_covresult.py ../result/${1}/${1}.all.result ../result/${1}/${1}.allepi.change
