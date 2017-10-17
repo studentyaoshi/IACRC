@@ -16,6 +16,8 @@ mkdir ../result/${1}/ee
 mkdir ../result/${1}/cov
 echo ''
 
+Numbers=(ZERO a b c d e f g h i j k l m n o p q r s t)
+
 echo Start getting interaction within chromatin regulatory circuitry A
 echo Please wait ...
 echo This step can be long, plz try smaller file first ...
