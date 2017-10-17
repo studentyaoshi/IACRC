@@ -1,4 +1,4 @@
-echo You can contact yangtielin@mail.xjtu.edu.cn when you have any questions, suggestions, comments, etc. Please describe in details, and attach your command line and log messages if possible.
+echo You can contact studentyaoshi@stu.xjtu.edu.cn when you have any questions, suggestions, comments, etc. Please describe in details, and attach your command line and log messages if possible.
 echo ''
 echo Please change the names in your/local/path/original/files to your local file names first
 echo ''
