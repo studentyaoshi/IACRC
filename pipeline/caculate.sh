@@ -111,7 +111,7 @@ do
 	plink -bfile ${2} --snps $line --recodeA --out ../result/${1}/cov/$line
 	rm ../result/${1}/cov/${line}.log
 	python changeraw.py ${3} ../result/${1}/cov/${line}.raw ../result/${1}/cov/${line}.recode
-	covs=`head -1 46149_cov_01pheno.txt|cut -f 3-|sed 's/\t/+/g'`
+	covs=`head -1 ${3}|cut -f 3-|sed 's/\t/+/g'`
 	Rscript epistasis.R ${line} ../result/${1}/cov/${line}.recode ../result/${1}/result/${line}.result $covs
 	rm ../result/${1}/cov/${line}.raw ../result/${1}/cov/${line}.recode
 	snp1=`echo "$line"|awk -F, '{print$1}'`
