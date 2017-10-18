@@ -150,13 +150,13 @@ MAF_threshold	0.05
 * Briefly, our pipeline makes a model based on allele dosage for each SNP through R, which fits a linear regression model for continuous phenotypes or logistic regression model for categorical phenotypes in the following equation:
 
 ```
-	Y ~ β+β1*SNP1+β2*SNP2+β3*SNP1×SNP2+e
-	For "two copies" of A allele (minor allele) of SNP2 (SNP2=2), the equation is:
-	Y ~ (β+2β2)+(β1+2β3)*SNP1+e
-	For "one copy" of A allele of SNP2 (SNP2=1), the equation is:
-	Y ~ (β+β2)+(β1+β3)*SNP1+e
-	For "zero copy" of A allele of SNP2 (SNP2=0), the equation is:
-	Y ~ β+β1*SNP1+e
+Y ~ β+β1*SNP1+β2*SNP2+β3*SNP1×SNP2+e
+For "two copies" of A allele (minor allele) of SNP2 (SNP2=2), the equation is:
+Y ~ (β+2β2)+(β1+2β3)*SNP1+e
+For "one copy" of A allele of SNP2 (SNP2=1), the equation is:
+Y ~ (β+β2)+(β1+β3)*SNP1+e
+For "zero copy" of A allele of SNP2 (SNP2=0), the equation is:
+Y ~ β+β1*SNP1+e
 ```
 
 * LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that need to be excluded from this caculation. Default value is 0.5.
