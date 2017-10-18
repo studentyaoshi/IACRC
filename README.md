@@ -144,17 +144,21 @@ This step can be long. So, it is recommend to use smaller files to test this sof
 There are three parameters you need to change in /your/local/path/original/files before caculate, which are Disease_Type, LD_threshold and MAF_threshold. For example:
 
 ```
-Disease_Type	continuous
 LD_threshold	0.5
 MAF_threshold	0.05
 ```
 * Briefly, our pipeline makes a model based on allele dosage for each SNP through R, which fits a linear regression model for continuous phenotypes or logistic regression model for categorical phenotypes in the following equation:
 
 ```
-Y ~ β + β1*SNP1 + β2*SNP2 + β3*SNP1×SNP2 + e
+	Y ~ β+β1*SNP1+β2*SNP2+β3*SNP1×SNP2+e
+	For "two copies" of A allele (minor allele) of SNP2 (SNP2=2), the equation is:
+	Y ~ (β+2β2)+(β1+2β3)*SNP1+e
+	For "one copy" of A allele of SNP2 (SNP2=1), the equation is:
+	Y ~ (β+β2)+(β1+β3)*SNP1+e
+	For "zero copy" of A allele of SNP2 (SNP2=0), the equation is:
+	Y ~ β+β1*SNP1+e
 ```
 
-* Disease_Type: a character, which `classified`, indicates a case/control test; `classified_cov` indicates a case/control test with covariates; or `continuous`, indicates the disease you are studing is quantitative trait. Default value is 'continuous'.
 * LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that need to be excluded from this caculation. Default value is 0.5.
 * MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs that need to be caculated. Default value is 0.05.
 
