@@ -5,7 +5,8 @@ echo Start caculating
 echo Please wait ...
 echo This step can be long, plz try smaller file first ...
 
-cat /home/ys/lib/project/snp_interaction/BMI/weak_ld/both_R/result/all/try.txt|while read line
+for ((i=1; i<=thread_number; i++))
+do cat ../result/$1/a${Numbers[$i]}|while read line
 do 
 	plink -bfile ${2} --snps $line --recodeA --out ../result/${1}/cov/$line
 	rm ../result/${1}/cov/${line}.log
@@ -19,4 +20,5 @@ do
 	echo -n ' ' >> ../result/${1}/${1}.all.result.${Numbers[$i]}
 	echo -n `grep "snp1:snp2" ../result/${1}/result/${line}.result|cut -d ' ' -f 2` >> ../result/${1}/${1}.all.result.${Numbers[$i]}
 	echo '' >> ../result/${1}/${1}.all.result.${Numbers[$i]}
-done 
+done &
+done
