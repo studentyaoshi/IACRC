@@ -139,15 +139,31 @@ You now get a folder named /your/local/path/result which contains different type
 Please wait until this job finishes.
 This step can be long. So, it is recommend to use smaller files to test this software first.
 
+## Get SNP pairs
+```
+sh getsnppairs.sh name genotype
+```
+* Name: a character of the name of your data.
+* Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#bed).
+
+```
+sh cat_snppairs.sh name
+```
+You now get a file named /your/local/path/result/name/name.pairs.uniq which contains the SNPs pairs in circuitry.
+
 ## Caculate
 
-There are three parameters you need to change in /your/local/path/original/files before caculate, which are Disease_Type, LD_threshold and MAF_threshold. For example:
+There are two parameters you need to change in /your/local/path/original/files before caculate, which are LD_threshold and MAF_threshold. For example:
 
 ```
 LD_threshold	0.5
 MAF_threshold	0.05
 ```
-* Briefly, our pipeline makes a model based on allele dosage for each SNP through R, which fits a linear regression model for continuous phenotypes or logistic regression model for categorical phenotypes in the following equation:
+* LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that need to be excluded from this caculation. Default value is 0.5.
+* MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs that need to be caculated. Default value is 0.05.
+	* Note: LD, Linkage disequilibrium; MAF, Minor allele frequency.
+
+Briefly, our pipeline makes a model based on allele dosage for each SNP through R, which fits a linear regression model for continuous phenotypes or logistic regression model for categorical phenotypes in the following equation:
 
 ```
 Y ~ β+β1*SNP1+β2*SNP2+β3*SNP1×SNP2+e
@@ -159,22 +175,17 @@ For "zero copy" of A allele of SNP2 (SNP2=0), the equation is:
 Y ~ β+β1*SNP1+e
 ```
 
-* LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that need to be excluded from this caculation. Default value is 0.5.
-* MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs that need to be caculated. Default value is 0.05.
-
-	* Note: LD, Linkage disequilibrium; MAF, Minor allele frequency.
-
 ```
-sh iacrc.sh name genotype phenotype
+sh caculate.sh name genotype phenotype
 ```
 
 * Name: a character of the name of your data. 
 * Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#bed). 
 * Phenotype: </br>
-When the Disease_Type is `classified` or `continuous`, the phenotype indicates the absolute path of the phenotype data, which contains three columns, Family ID, Individual ID and Phenotype, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#pheno).</br>
-When the Disease_Type is `classified_cov`, the phenotype indicates the phenotype with covariates and header divided by tab:
 
-	* Note: the `PHENO` in `classified_cov` is 1/0 rather than 2/1 in [phenotype](http://zzz.bwh.harvard.edu/plink/data.shtml#pheno).
+The phenotype indicates the absolute path of the phenotype data with covariates and header divided by tab:
+
+	* Note: the `PHENO` is 1/0 rather than 2/1 in [phenotype](http://zzz.bwh.harvard.edu/plink/data.shtml#pheno) for categorical phenotypes.
 
 ```
 IID	PHENO	COV1	COV2	COV3	COV4	COV5	COV6	COV7	COV8
