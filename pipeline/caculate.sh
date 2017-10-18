@@ -13,7 +13,7 @@ do
 	python changeraw.py ${3} ../result/${1}/cov/${line}.raw ../result/${1}/cov/${line}.recode
 	covs=`head -1 ${3}|cut -f 3-|sed 's/\t/+/g'`
 	Rscript epistasis.R ${line} ../result/${1}/cov/${line}.recode ../result/${1}/result/${line}.result $covs
-	#rm ../result/${1}/cov/${line}.raw ../result/${1}/cov/${line}.recode
+	rm ../result/${1}/cov/${line}.raw ../result/${1}/cov/${line}.recode
 	snp1=`echo "$line"|awk -F, '{print$1}'`
 	snp2=`echo "$line"|awk -F, '{print$2}'`
 	echo -n ${snp1}_${snp2} >> ../result/${1}/${1}.all.result.${Numbers[$i]}
