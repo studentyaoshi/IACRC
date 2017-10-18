@@ -84,7 +84,7 @@ do
 	cut -f 2 ../result/${1}/ee/${name}_2.bim > ../result/${1}/ee/${name}.2snp
 	if [ -s ../result/${1}/ee/${name}.1snp ] && [ -s ../result/${1}/ee/${name}.2snp ]
 	then
-		python getpairs.py ../result/${1}/ee/${name}.1snp ../result/${1}/ee/${name}.2snp >> ../result/${1}/${1}.pairs.${Numbers[$i]}
+		python getpairs.py ../result/${1}/ee/${name}.1snp ../result/${1}/ee/${name}.2snp >> ../result/${1}/${1}.pairs.hic.${Numbers[$i]}
 		rm ../result/${1}/ee/${name}.1snp ../result/${1}/ee/${name}.2snp ../result/${1}/ee/${name}_1.* ../result/${1}/ee/${name}_2.*
 	else
 		rm ../result/${1}/ee/${name}.1snp ../result/${1}/ee/${name}.2snp ../result/${1}/ee/${name}_1.* ../result/${1}/ee/${name}_2.*
@@ -93,7 +93,7 @@ done &
 done
 
 for ((i=1; i<=thread_number; i++))
-do cat ../result/${1}/${1}.pairs.${Numbers[$i]} >> ../result/${1}/${1}.pairs
+do cat ../result/${1}/${1}.pairs.${Numbers[$i]} ../result/${1}/${1}.pairs.hic.${Numbers[$i]} >> ../result/${1}/${1}.pairs
 done
 
 sort ../result/${1}/${1}.pairs|uniq > ../result/${1}/${1}.pairs.uniq
