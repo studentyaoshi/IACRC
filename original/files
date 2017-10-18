@@ -5,6 +5,6 @@ GENE_ENHANCER GM12878_gene_enhancer.txt
 SUPER_ENHANCER obesity.SE.bed
 
 Thread 10
-Disease_Type continuous
+
 LD_threshold 0.5
 MAF_threshold 0.05
