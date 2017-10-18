@@ -151,7 +151,7 @@ MAF_threshold	0.05
 * Briefly, our pipeline makes a model based on allele dosage for each SNP through R, which fits a linear regression model for continuous phenotypes or logistic regression model for categorical phenotypes in the following equation:
 
 ```
-Y ~ β + &beta1;*SNP1 + &beta;2*SNP2 + &beta;3*SNP1&times;SNP2 + e
+Y ~ β + β1*SNP1 + β2*SNP2 + β3*SNP1×SNP2 + e
 ```
 
 * Disease_Type: a character, which `classified`, indicates a case/control test; `classified_cov` indicates a case/control test with covariates; or `continuous`, indicates the disease you are studing is quantitative trait. Default value is 'continuous'.
