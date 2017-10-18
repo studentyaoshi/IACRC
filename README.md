@@ -148,6 +148,11 @@ Disease_Type	continuous
 LD_threshold	0.5
 MAF_threshold	0.05
 ```
+* Briefly, our pipeline makes a model based on allele dosage for each SNP through R, which fits a linear regression model for continuous phenotypes or logistic regression model for categorical phenotypes in the following equation:
+
+```
+Y ~ &beta + &beta1*SNP1 + &beta2*SNP2 + &beta3*SNP1&timesSNP2 + e
+```
 
 * Disease_Type: a character, which `classified`, indicates a case/control test; `classified_cov` indicates a case/control test with covariates; or `continuous`, indicates the disease you are studing is quantitative trait. Default value is 'continuous'.
 * LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that need to be excluded from this caculation. Default value is 0.5.
