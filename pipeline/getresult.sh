@@ -1,6 +1,6 @@
 cd ../result/${1}/result
 ld=`grep LD_threshold ../original/files|awk -F ' ' '{print$2}'`
-ls|grep epi.qt$|while read line
+ls|grep -E "epi.qt$|epi.cc$"|while read line
 do cat $line >> ../${1}.allepi
 done
 cd ../../../pipeline
