@@ -159,7 +159,7 @@ There are two parameters you need to change in /your/local/path/original/files b
 	LD_threshold	0.5
 	MAF_threshold	0.05
 ```
-* LD_threshold: a number range from 0 to 1, indicates the threshold of r2 of SNP pairs that need to be excluded from this caculation. Default value is 0.5.
+* LD_threshold: a number range from 0 to 1, indicates the threshold of r<sup>2<sup> of SNP pairs that need to be excluded from this caculation. Default value is 0.5.
 * MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs that need to be caculated. Default value is 0.05.
 	* Note: LD, Linkage disequilibrium; MAF, Minor allele frequency.
 
@@ -181,9 +181,7 @@ Briefly, our pipeline makes a model based on allele dosage for each SNP through 
 
 * Name: a character of the name of your data. 
 * Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#bed). 
-* Phenotype: </br>
-
-The phenotype indicates the absolute path of the phenotype data with covariates and header divided by tab:
+* Phenotype: the absolute path of the phenotype data with covariates and header divided by tab:
 
 	* Note: the `PHENO` is 1/0 rather than 2/1 in [phenotype](http://zzz.bwh.harvard.edu/plink/data.shtml#pheno) for categorical phenotypes.
 
