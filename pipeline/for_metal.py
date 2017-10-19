@@ -21,7 +21,7 @@ b=open(sys.argv[3]+'.metal','wt')
 b.write('SNP\tA1\tA2\tP\tBETA\tN\n')
 a.readline()
 for i in a:
-	s1,s2,beta,p=i.strip().split('\t')
+	s1,s2,p,beta=i.strip().split('\t')
 	if dic2.get(s1)==dic.get(s1) and dic2.get(s2)==dic.get(s2):
 		b.write(s1+'_'+s2+'\tA\tT\t'+p+'\t'+beta+'\t'+sys.argv[4]+'\n')
 	elif dic2.get(s1)!=dic.get(s1) and dic2.get(s2)!=dic.get(s2):
