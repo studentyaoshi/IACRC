@@ -131,7 +131,7 @@ We have made the analyses being able to run on multiple CPUs. Specify the number
 	Thread 20
 ```
 
-## Get Circuitry
+## Obtain Potential Interacting Regions
 ```
 	sh getcircuit.sh
 ```
@@ -140,7 +140,7 @@ You now get a folder named /your/local/path/result which contains different type
 Please wait until this job finishes.
 This step can be long. So, it is recommend to use smaller files to test this software first.
 
-## Get SNP Pairs
+## Obtain Potential SNP Pairs
 ```
 	sh getsnppairs.sh name genotype
 ```
@@ -167,7 +167,7 @@ There are some parameters you need to change in /your/local/path/original/files 
 * CR_threshold: a number range from 0 to 1, indicates the threshold of call rate of SNPs that need to be excluded from this caculation. Default value is 0.95, which means the SNPs with CR less than 0.95 will be excluded.
 * MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs that need to be excluded from this caculation. Default value is 0.05, which means the SNPs with MAF less than 0.05 will be excluded.
 * HWE_threshold: a number range from 0 to 0.05, indicates the threshold of HWE p-value of SNPs that need to be excluded from this caculation. Default value is 0.001, which means the SNPs with HWE p-value less than 0.001 will be excluded.
-* LD_threshold: a number range from 0 to 1, indicates the threshold of r<sup>2</sup> of SNP pairs that need to be excluded from this caculation. Default value is 0.5, which means the SNP pair in LD with each other (r<sup>2</sup><LD_threshold) will be excluded.
+* LD_threshold: a number range from 0 to 1, indicates the threshold of r<sup>2</sup> of SNP pairs that need to be excluded from this caculation. Default value is 0.5, which means the SNP pair in LD with each other (r<sup>2</sup> < LD_threshold) will be excluded.
 
 	* Note: IMR, Individual missing rate; CR, Call rate; MAF, Minor allele frequency; HWE, Hardy-Weinberg equilibrium; LD, Linkage disequilibrium.
 
