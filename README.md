@@ -124,14 +124,14 @@ These five files need to be moved to /your/local/path/original/ after preparatio
 	SUPER_ENHANCER	obesity.SE.bed
 ```
 
-# Start caculating
+# Start Caculating
 
 We have made the analyses being able to run on multiple CPUs. Specify the number of threads (1-20) in /your/local/path/original/files which the program will be running on multiple CPUs.
 ```
 	Thread 20
 ```
 
-## Get circuitry
+## Get Circuitry
 ```
 	sh getcircuit.sh
 ```
@@ -140,7 +140,7 @@ You now get a folder named /your/local/path/result which contains different type
 Please wait until this job finishes.
 This step can be long. So, it is recommend to use smaller files to test this software first.
 
-## Get SNP pairs
+## Get SNP Pairs
 ```
 	sh getsnppairs.sh name genotype
 ```
