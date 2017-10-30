@@ -11,4 +11,3 @@ sort ../result/${1}/${1}.pairs|uniq > ../result/${1}/${1}.pairs.uniq
 row_number=`cat ../result/${1}/${1}.pairs.uniq|wc -l`
 let filenumber=${row_number}/${thread_number}+1
 split -l ${filenumber} ../result/${1}/${1}.pairs.uniq ../result/${1}/
-
