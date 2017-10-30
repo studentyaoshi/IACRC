@@ -161,8 +161,7 @@ There are some parameters you need to change in /your/local/path/original/files 
 	CR_threshold	0.95
 	MAF_threshold	0.05
 	HWE_threshold	0.001
-	LD_threshold	0.5
-	
+	LD_threshold	0.5	
 ```
 * IMR_threshold: a number range from 0 to 1, indicates the threshold of individual missing rate that need to be excluded from this caculation. Default value is 0.05, which means the individuals with IMR over 0.05 will be excluded.
 * CR_threshold: a number range from 0 to 1, indicates the threshold of call rate of SNPs that need to be excluded from this caculation. Default value is 0.95, which means the SNPs with CR less than 0.95 will be excluded.
