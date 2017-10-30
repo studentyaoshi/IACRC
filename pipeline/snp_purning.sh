@@ -15,7 +15,7 @@ python nosamegene.py ${2}.ex.out.wgEncodeGencodeBasicV19.variant_function ../res
 grep exonic ${2}.ex.out.wgEncodeGencodeBasicV19.variant_function |cut -f 8 > ${2}.exon.snp
 
 plink --bfile ${2} --missing --hardy --out ${2}
-python purning.py
+#python purning.py $${{2}.hwe ${2}.lmiss ${2}.imiss ${2}.hardy
 
 rm ${2}.log ${2}.hwe ${2}.lmiss ${2}.imiss ${2}.hh ${2}.hardy
 rm ${2}.anno.tem ${2}.ex.out.wgEncodeGencodeBasicV19.exonic_variant_function ${2}.ex.out.wgEncodeGencodeBasicV19.variant_function ${2}.ex.out.wgEncodeGencodeBasicV19.log ${2}.ex.out.hg19_multianno.txt
