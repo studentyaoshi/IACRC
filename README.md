@@ -154,15 +154,22 @@ You now get a file named /your/local/path/result/name/name.pairs.uniq which cont
 
 ## Caculate
 
-There are two parameters you need to change in /your/local/path/original/files before caculate, which are LD_threshold and MAF_threshold. For example:
+There are some parameters you need to change in /your/local/path/original/files before caculate, which are IMR_threshold, CR_threshold, MAF_threshold, HWE_threshold and LD_threshold. For example:
 
 ```
-	LD_threshold	0.5
+	IMR_threshold	0.05
+	CR_threshold	0.95
 	MAF_threshold	0.05
+	HWE_threshold	0.001
+	LD_threshold	0.5
+	
 ```
-* LD_threshold: a number range from 0 to 1, indicates the threshold of r<sup>2</sup> of SNP pairs that need to be excluded from this caculation. Default value is 0.5.
-* MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs that need to be caculated. Default value is 0.05.
-	* Note: LD, Linkage disequilibrium; MAF, Minor allele frequency.
+* IMR_threshold: a number range from 0 to 1, indicates the threshold of individual missing rate that need to be excluded from this caculation. Default value is 0.05, which means the individuals with IMR over 0.05 will be excluded.
+* CR_threshold: a number range from 0 to 1, indicates the threshold of call rate of SNPs that need to be excluded from this caculation. Default value is 0.95, which means the SNPs with CR less than 0.95 will be excluded.
+* MAF_threshold: a number range from 0 to 0.5, indicates the threshold of MAF of SNPs that need to be excluded from this caculation. Default value is 0.05, which means the SNPs with MAF less than 0.05 will be excluded.
+* HWE_threshold: a number range from 0 to 0.05, indicates the threshold of HWE p-value of SNPs that need to be excluded from this caculation. Default value is 0.001, which means the SNPs with HWE p-value over 0.001 will be excluded.
+* LD_threshold: a number range from 0 to 1, indicates the threshold of r<sup>2</sup> of SNP pairs that need to be excluded from this caculation. Default value is 0.5, which means the SNP pair in LD with each other (r<sup>2</sup><LD_threshold) will be excluded.
+	* Note: IMR, Individual missing rate; CR, Call rate; MAF, Minor allele frequency; HWE, Hardy-Weinberg equilibrium; LD, Linkage disequilibrium.
 
 Briefly, our pipeline makes a model based on allele dosage for each SNP through R, which fits a linear regression model for continuous phenotypes or logistic regression model for categorical phenotypes in the following equation:
 
