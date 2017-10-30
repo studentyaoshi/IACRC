@@ -16,7 +16,7 @@ https://github.com/studentyaoshi/IACRC
 
 ## Author
 
-Shan-Shan Dong, Shi Yao, Yan Guo, Tie-Lin Yang </br>
+Shan-Shan Dong, Shi Yao, Yi-Xiao Chen, Yan Guo, Tie-Lin Yang </br>
 Key Laboratory of Biomedical Information Engineering of Ministry of Education, School of Life Science and Technology, Xi'an Jiaotong University, Xi'an, Shaanxi Province, 710049, P. R. China </br>
 yangtielin@mail.xjtu.edu.cn
 
@@ -27,11 +27,12 @@ You can contact dongss@xjtu.edu.cn or studentyaoshi@stu.xjtu.edu.cn when you hav
 
 # Requiremnets
 
-[PLINK](https://www.cog-genomics.org/plink2);</br>
+[R](https://www.r-project.org/);</br>
 [Python2.7](https://www.python.org/downloads/);</br>
 [Bedtools](http://bedtools.readthedocs.io/en/latest/content/installation.html);</br>
-[METAL](http://csg.sph.umich.edu/abecasis/metal/download/) if you would like to do meta analysis;</br>
-and [R](https://www.r-project.org/) if you would like to include covariates in case/control test.
+[PLINK](https://www.cog-genomics.org/plink2);</br>
+[GCTA](http://cnsgenomics.com/software/gcta/#PCA) if you would like to use principal components as covariates;</br>
+and [METAL](http://csg.sph.umich.edu/abecasis/metal/download/) if you would like to do meta analysis.</br>
 
 # Preparation
 
@@ -166,13 +167,7 @@ There are two parameters you need to change in /your/local/path/original/files b
 Briefly, our pipeline makes a model based on allele dosage for each SNP through R, which fits a linear regression model for continuous phenotypes or logistic regression model for categorical phenotypes in the following equation:
 
 ```
-	Y ~ β+β1*SNP1+β2*SNP2+β3*SNP1×SNP2+e
-	For "two copies" of A allele (minor allele) of SNP2 (SNP2=2), the equation is:
-	Y ~ (β+2β2)+(β1+2β3)*SNP1+e
-	For "one copy" of A allele of SNP2 (SNP2=1), the equation is:
-	Y ~ (β+β2)+(β1+β3)*SNP1+e
-	For "zero copy" of A allele of SNP2 (SNP2=0), the equation is:
-	Y ~ β+β1*SNP1+e
+	Y ~ β + β1*SNP1 + β2*SNP2 + β3*SNP1*SNP2 + β4*Cov1 + ... + βn*Covn + e
 ```
 
 ```
