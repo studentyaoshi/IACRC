@@ -127,7 +127,8 @@ These five files need to be moved to /your/local/path/original/ after preparatio
 
 # Start Caculating
 
-We have made the analyses being able to run on multiple CPUs. Specify the number of threads (1-20) in /your/local/path/original/files which the program will be running on multiple CPUs.</br>
+We have made the analyses being able to run on multiple CPUs. Specify the number of threads (1-20) in /your/local/path/original/files which the program will be running on multiple CPUs.
+
 Default value is 5.
 ```
 	Thread 5
