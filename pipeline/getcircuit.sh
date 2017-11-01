@@ -94,7 +94,13 @@ rm ../result/circuit1_2/hic.anno.add1
 mkdir ../result/circuit1_2/hicpair
 row_number=`cat ../result/circuit1_2/hicpair.enhancer|wc -l`
 let filenumber=${row_number}/${thread_number}+1
-split -l ${filenumber} ../result/circuit1_2/hicpair.enhancer ../result/circuit1_2/
+if [ -s ../result/circuit1_2/hicpair.enhancer ]
+	split -l ${filenumber} ../result/circuit1_2/hicpair.enhancer ../result/circuit1_2/
+else
+	for ((i=1; i<=thread_number; i++))
+	do touch ../result/circuit1_2/a${Numbers[$i]}
+	done
+fi
 for ((i=1; i<=thread_number; i++))
 do cat ../result/circuit1_2/a${Numbers[$i]}|while read line
 do
