@@ -10,6 +10,12 @@ hmm_enhancer=`grep HMM_ENHANCER ../original/files|awk -F ' ' '{print$2}'`
 gene_enhancer=`grep GENE_ENHANCER ../original/files|awk -F ' ' '{print$2}'`
 super_enhancer=`grep SUPER_ENHANCER ../original/files|awk -F ' ' '{print$2}'`
 thread_number=`grep Thread ../original/files|awk -F ' ' '{print$2}'`
+
+R=`grep R_path ../original/files|awk -F ' ' '{print$2}'`
+python=`grep Python_path ../original/files|awk -F ' ' '{print$2}'`
+bedtools=`grep Bedtools_path ../original/files|awk -F ' ' '{print$2}'`
+plink=`grep Plink_path ../original/files|awk -F ' ' '{print$2}'`
+perl=`grep Perl_path ../original/files|awk -F ' ' '{print$2}'`
 echo ''
 
 Numbers=(ZERO a b c d e f g h i j k l m n o p q r s t)
@@ -47,18 +53,18 @@ do
 	echo -e $chrn'\t'$stag'\t'$end'\t'$gene > ../result/gene/$genename
 
 #echo Interaction region aa: enhancer-gene
-	python circuit1.py $chr $stag $endg $genename ../original/$hicfile ../result/circuit1/
-	bedtools intersect -a ../result/circuit1/$genename -b ../original/$hmm_enhancer > ../result/circuit1/${genename}.hmm
+	$python circuit1.py $chr $stag $endg $genename ../original/$hicfile ../result/circuit1/
+	$bedtools intersect -a ../result/circuit1/$genename -b ../original/$hmm_enhancer > ../result/circuit1/${genename}.hmm
 	sort ../result/circuit1/${genename}.hmm|uniq > ../result/circuit1/${genename}.enhancer
-	bedtools intersect -a ../result/circuit1/${genename}.enhancer -b ../original/$hmm_enhancer -wo > ../result/circuit1/${genename}.hmm2
-	python ../pipeline/change_anno.py ../result/circuit1/${genename}.enhancer ../result/circuit1/${genename}.circuit1
+	$bedtools intersect -a ../result/circuit1/${genename}.enhancer -b ../original/$hmm_enhancer -wo > ../result/circuit1/${genename}.hmm2
+	$python ../pipeline/change_anno.py ../result/circuit1/${genename}.enhancer ../result/circuit1/${genename}.circuit1
 	rm ../result/circuit1/${genename} ../result/circuit1/${genename}.hmm ../result/circuit1/${genename}.enhancer ../result/circuit1/${genename}.hmm2
 
 #echo ======interaction region ba: enhancer-gene======
-	python ../pipeline/circuit2.py $chr $stag $endg $gene $genename ../original/$gene_enhancer
+	$python ../pipeline/circuit2.py $chr $stag $endg $gene $genename ../original/$gene_enhancer
 
 #echo ======interaction region ca: enhancer-gene======
-	python circuit3.py $chr $sta $end $genename ../original/$super_enhancer
+	$python circuit3.py $chr $sta $end $genename ../original/$super_enhancer
 
 #echo ======combine enhancer-gene aa,ba,ca======
 	cat ../result/circuit1/${genename}.circuit1 ../result/circuit2/${genename}.circuit2 ../result/circuit3/${genename}.circuit3 > ../result/allcircuit/${genename}.circuits
@@ -71,19 +77,19 @@ echo Please wait ...
 echo This step can be long, plz try smaller file first ...
 cut -f 1-3 ../original/$hicfile > ../result/circuit1_2/hic.former
 cut -f 4-6 ../original/$hicfile > ../result/circuit1_2/hic.later
-bedtools intersect -a ../result/circuit1_2/hic.former -b ../original/${hmm_enhancer} -c > ../result/circuit1_2/hic.former.enhancer
-bedtools intersect -a ../result/circuit1_2/hic.later -b ../original/${hmm_enhancer} -c > ../result/circuit1_2/hic.later.enhancer
+$bedtools intersect -a ../result/circuit1_2/hic.former -b ../original/${hmm_enhancer} -c > ../result/circuit1_2/hic.former.enhancer
+$bedtools intersect -a ../result/circuit1_2/hic.later -b ../original/${hmm_enhancer} -c > ../result/circuit1_2/hic.later.enhancer
 rm ../result/circuit1_2/hic.former ../result/circuit1_2/hic.later
 cut -f 4 ../result/circuit1_2/hic.former.enhancer > ../result/circuit1_2/hic.former.enhancer.anno
 cut -f 4 ../result/circuit1_2/hic.later.enhancer > ../result/circuit1_2/hic.later.enhancer.anno
 rm ../result/circuit1_2/hic.former.enhancer ../result/circuit1_2/hic.later.enhancer
 paste ../result/circuit1_2/hic.former.enhancer.anno ../result/circuit1_2/hic.later.enhancer.anno > ../result/circuit1_2/hic.anno
 rm ../result/circuit1_2/hic.former.enhancer.anno ../result/circuit1_2/hic.later.enhancer.anno
-python getenhancer.py ../result/circuit1_2/hic.anno
+$python getenhancer.py ../result/circuit1_2/hic.anno
 rm ../result/circuit1_2/hic.anno
 paste ../original/$hicfile ../result/circuit1_2/hic.anno.1 > ../result/circuit1_2/hic.anno.add1
 rm ../result/circuit1_2/hic.anno.1
-python gethicpair.py ../result/circuit1_2/hic.anno.add1 ../result/circuit1_2/hicpair.enhancer
+$python gethicpair.py ../result/circuit1_2/hic.anno.add1 ../result/circuit1_2/hicpair.enhancer
 rm ../result/circuit1_2/hic.anno.add1
 mkdir ../result/circuit1_2/hicpair
 row_number=`cat ../result/circuit1_2/hicpair.enhancer|wc -l`
@@ -101,10 +107,10 @@ do
 	name=${chr1}_${start1}_${end1}_${chr2}_${start2}_${end2}
 	echo -e ${chr1}'\t'${start1}'\t'${end1} > ../result/circuit1_2/hicpair/${name}_1
 	echo -e ${chr2}'\t'${start2}'\t'${end2} > ../result/circuit1_2/hicpair/${name}_2
-	bedtools intersect -a ../result/circuit1_2/hicpair/${name}_1 -b ../original/$hmm_enhancer > ../result/circuit1_2/hicpair/${name}_1.pairs
-	bedtools intersect -a ../result/circuit1_2/hicpair/${name}_2 -b ../original/$hmm_enhancer > ../result/circuit1_2/hicpair/${name}_2.pairs
-	python changepairs.py ../result/circuit1_2/hicpair/${name}_1.pairs
-	python changepairs.py ../result/circuit1_2/hicpair/${name}_2.pairs
+	$bedtools intersect -a ../result/circuit1_2/hicpair/${name}_1 -b ../original/$hmm_enhancer > ../result/circuit1_2/hicpair/${name}_1.pairs
+	$bedtools intersect -a ../result/circuit1_2/hicpair/${name}_2 -b ../original/$hmm_enhancer > ../result/circuit1_2/hicpair/${name}_2.pairs
+	$python changepairs.py ../result/circuit1_2/hicpair/${name}_1.pairs
+	$python changepairs.py ../result/circuit1_2/hicpair/${name}_2.pairs
 	rm ../result/circuit1_2/hicpair/${name}_1 ../result/circuit1_2/hicpair/${name}_2 ../result/circuit1_2/hicpair/${name}_1.pairs ../result/circuit1_2/hicpair/${name}_2.pairs
 done &
 done
