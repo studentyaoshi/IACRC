@@ -177,6 +177,7 @@ There are some parameters you need to change in /your/local/path/original/files 
 ```
 * Name: a character of the name of your data.
 * Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#bed).
+You now get a file named /your/local/path/result/name/name.pairs.purning which contains the SNPs pairs in circuitry after SNP pruning.
 ## Interaction Analysis
 
 Briefly, our pipeline makes a model based on allele dosage for each SNP through R, which fits a linear regression model for continuous phenotypes or logistic regression model for categorical phenotypes in the following equation:
