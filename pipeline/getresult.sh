@@ -9,12 +9,8 @@ do cat ../result/${1}/${1}.all.result.${Numbers[$i]} >> ../result/${1}/${1}.all.
 done
 
 python change_covresult.py ../result/${1}/${1}.all.result ../result/${1}/${1}.allepi.change
-rm ../result/${1}/${1}.all.result
-plink --noweb --bfile ${2} --r2 --ld-window-kb 1000 --ld-window 99999 --ld-window-r2 ${ld} --out ../result/ld/${1}
-python nold05.py ../result/ld/${1}.ld ../result/${1}/${1}.allepi.change ../result/${1}/${1}.allepi.change.nold05
-rm ../result/${1}/${1}.allepi.change
-sort -r ../result/${1}/${1}.allepi.change.nold05|uniq> ../result/${1}/${1}.allepi.uniq
-rm ../result/${1}/${1}.allepi.change.nold05
+sort -r ../result/${1}/${1}.allepi.change|uniq> ../result/${1}/${1}.allepi.uniq
+rm ../result/${1}/${1}.all.result ../result/${1}/${1}.allepi.change
 mv ../result/${1}/${1}.allepi.uniq ../result/${1}/${1}.allepi
 
 #number=`cat ${3}|wc -l`
