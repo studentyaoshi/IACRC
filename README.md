@@ -176,7 +176,7 @@ There are some parameters you need to change in /your/local/path/original/files 
 	sh snp_purning.sh name genotype
 ```
 * Name: a character of the name of your data.
-* Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#bed).
+* Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#bed).</br>
 You now get a file named /your/local/path/result/name/name.pairs.purning which contains the SNPs pairs in circuitry after SNP pruning.
 ## Interaction Analysis
 
