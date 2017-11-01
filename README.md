@@ -31,7 +31,7 @@ You can contact dongss@xjtu.edu.cn or studentyaoshi@stu.xjtu.edu.cn when you hav
 [Python2.7](https://www.python.org/downloads/);</br>
 [Bedtools](http://bedtools.readthedocs.io/en/latest/content/installation.html);</br>
 [PLINK](https://www.cog-genomics.org/plink2);</br>
-[ANNOVAR](http://annovar.openbioinformatics.org/en/latest/#annovar-documentation);</br>
+[Perl](https://www.perl.org/);</br>
 [GCTA](http://cnsgenomics.com/software/gcta/#PCA) if you would like to use principal components as covariates;</br>
 and [METAL](http://csg.sph.umich.edu/abecasis/metal/download/) if you would like to do meta analysis.</br>
 
@@ -118,6 +118,7 @@ These five files need to be moved to /your/local/path/original/ after preparatio
 ```
 
 ```
+	Original files:
 	GENE_POSITION	gene_information
 	HIC		GM12878_HIC.bed
 	HMM_ENHANCER	E116_enhancer.bed
@@ -127,10 +128,22 @@ These five files need to be moved to /your/local/path/original/ after preparatio
 
 # Start Caculating
 
+You need to set the absolute path of the software accordingly in /your/local/path/original/files before caculating.
+
+```
+	Path of software:
+	R_path /opt/software/R-3.3.2/bin/R
+	Python_path /opt/software/python/bin/python
+	Bedtools_path /opt/software/bedtools2-2.25.0/bin/bedtools
+	Plink_path /opt/software/plink_1.90/plink
+	Perl_path /usr/bin/perl
+```
+
 We have made the analyses being able to run on multiple CPUs. Specify the number of threads (1-20) in /your/local/path/original/files which the program will be running on multiple CPUs.
 
 Default value is 5.
 ```
+	CPU number:
 	Thread 5
 ```
 
@@ -160,6 +173,7 @@ You now get a file named /your/local/path/result/name/name.pairs.uniq which cont
 There are some parameters you need to change in /your/local/path/original/files before caculate, which are IMR_threshold, CR_threshold, MAF_threshold, HWE_threshold and LD_threshold. For example:
 
 ```
+	Threshold:
 	IMR_threshold	0.05
 	CR_threshold	0.95
 	MAF_threshold	0.05
