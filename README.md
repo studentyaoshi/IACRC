@@ -172,6 +172,11 @@ There are some parameters you need to change in /your/local/path/original/files 
 
 	* Note: IMR, Individual missing rate; CR, Call rate; MAF, Minor allele frequency; HWE, Hardy-Weinberg equilibrium; LD, Linkage disequilibrium.
 
+```
+	sh snp_purning.sh name genotype
+```
+* Name: a character of the name of your data.
+* Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#bed).
 ## Interaction Analysis
 
 Briefly, our pipeline makes a model based on allele dosage for each SNP through R, which fits a linear regression model for continuous phenotypes or logistic regression model for categorical phenotypes in the following equation:
