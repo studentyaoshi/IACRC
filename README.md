@@ -177,8 +177,10 @@ There are some parameters you need to change in /your/local/path/original/files 
 ```
 	sh snp_purning.sh name genotype
 ```
+
 * Name: a character of the name of your data.
-* Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#bed).</br>
+* Genotype: the absolute path of the binary genotype data, including .bed .bim .fam, the format can be found [here](http://zzz.bwh.harvard.edu/plink/data.shtml#bed).
+
 You now get a file named /your/local/path/result/name/name.pairs.purning which contains the SNPs pairs in circuitry after SNP pruning.
 ## Interaction Analysis
 
@@ -206,7 +208,9 @@ Briefly, our pipeline makes a model based on allele dosage for each SNP through 
 	4809	1	1	67	0.0169	-0.0027	-0.0099	-0.0146	0.0001	1
 	4810	0	2	62	0.0116	-0.0061	-0.0180	0.00076	-0.0042	1
 ```
-
+```
+	sh getresult.sh name
+```
 You now get the results of `IACRC` in /your/local/path/result/name/name.allepi after this step.
 
 Please wait until this job finishes. This step can be long. So, it is recommend to use smaller files to test this software first.
