@@ -1,13 +1,23 @@
+Original files:
 GENE_POSITION gene_information
 HIC GM12878_HIC.bed
 HMM_ENHANCER E116_enhancer.bed
 GENE_ENHANCER GM12878_gene_enhancer.txt
 SUPER_ENHANCER obesity.SE.bed
 
+Thread number:
 Thread 5
 
+Threshold:
 IMR_threshold 0.05
 CR_threshold 0.95
 MAF_threshold 0.05
 HWE_threshold 0.001
 LD_threshold 0.5
+
+Path of software:
+R_path /opt/software/R-3.3.2/bin/R
+Python_path /opt/software/python/bin/python
+Bedtools_path /opt/software/bedtools2-2.25.0/bin/bedtools
+Plink_path /opt/software/plink_1.90/plink
+Perl_path /usr/bin/perl
