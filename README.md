@@ -189,7 +189,7 @@ Briefly, our pipeline makes a model based on allele dosage for each SNP through 
 ```
 
 ```
-	sh caculate.sh name genotype phenotype
+	sh caculate.sh name genotype.keep phenotype
 ```
 
 * Name: a character of the name of your data. 
