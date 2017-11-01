@@ -95,6 +95,7 @@ mkdir ../result/circuit1_2/hicpair
 row_number=`cat ../result/circuit1_2/hicpair.enhancer|wc -l`
 let filenumber=${row_number}/${thread_number}+1
 if [ -s ../result/circuit1_2/hicpair.enhancer ]
+then
 	split -l ${filenumber} ../result/circuit1_2/hicpair.enhancer ../result/circuit1_2/
 else
 	for ((i=1; i<=thread_number; i++))
