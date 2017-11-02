@@ -22,8 +22,11 @@ a.readline()
 maf={}
 for i in a:
 	all=i.strip().split()
-	if float(all[-2]) > float(sys.argv[7]):
-		maf[snp]='1'
+	try:
+		if float(all[-2]) > float(sys.argv[7]):
+			maf[snp]='1'
+	except:
+		n=0
 a.close()
 a=open(sys.argv[8],'rt')
 hardy={}
