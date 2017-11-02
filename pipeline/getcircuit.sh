@@ -121,4 +121,4 @@ do
 	rm ../result/circuit1_2/hicpair/${name}_1 ../result/circuit1_2/hicpair/${name}_2 ../result/circuit1_2/hicpair/${name}_1.pairs ../result/circuit1_2/hicpair/${name}_2.pairs
 done &
 done
-echo ''
+echo 'Please wait until this job finishes!'
