@@ -119,11 +119,11 @@ These five files need to be moved to /your/local/path/original/ after preparatio
 
 ```
 	Original files:
-	GENE_POSITION	gene_information
-	HIC		GM12878_HIC.bed
-	HMM_ENHANCER	E116_enhancer.bed
-	GENE_ENHANCER	GM12878_gene_enhancer.txt
-	SUPER_ENHANCER	obesity.SE.bed
+	GENE_POSITION	gene.test
+	HIC		hic.test
+	HMM_ENHANCER	HMM_enhancer.test
+	GENE_ENHANCER	enhancer.test
+	SUPER_ENHANCER	SE.test
 ```
 
 # Start Caculating
