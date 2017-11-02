@@ -22,6 +22,7 @@ a.readline()
 maf={}
 for i in a:
 	all=i.strip().split()
+	snp=all[1]
 	try:
 		if float(all[-2]) > float(sys.argv[7]):
 			maf[snp]='1'
