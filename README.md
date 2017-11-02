@@ -31,7 +31,7 @@ You can contact dongss@xjtu.edu.cn or studentyaoshi@stu.xjtu.edu.cn when you hav
 [Python2.7](https://www.python.org/downloads/);</br>
 [Bedtools](http://bedtools.readthedocs.io/en/latest/content/installation.html);</br>
 [PLINK](https://www.cog-genomics.org/plink2);</br>
-[Perl](https://www.perl.org/);</br>
+[Perl](https://www.perl.org/) to execute [ANNOVAR](http://annovar.openbioinformatics.org/en/latest/);</br>
 [GCTA](http://cnsgenomics.com/software/gcta/#PCA) if you would like to use principal components as covariates;</br>
 and [METAL](http://csg.sph.umich.edu/abecasis/metal/download/) if you would like to do meta analysis.</br>
 
