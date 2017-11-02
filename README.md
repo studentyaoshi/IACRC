@@ -137,6 +137,7 @@ You need to set the absolute path of the software accordingly in /your/local/pat
 	Bedtools_path /opt/software/bedtools2-2.25.0/bin/bedtools
 	Plink_path /opt/software/plink_1.90/plink
 	Perl_path /usr/bin/perl
+	Annovar_path /home/cxf/software/annovar
 ```
 
 We have made the analyses being able to run on multiple CPUs. Specify the number of threads (1-20) in /your/local/path/original/files which the program will be running on multiple CPUs.
