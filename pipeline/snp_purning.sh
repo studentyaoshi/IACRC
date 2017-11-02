@@ -21,7 +21,7 @@ $python nosamegene.py ${2}.ex.out.wgEncodeGencodeBasicV19.variant_function ../re
 grep exonic ${2}.ex.out.wgEncodeGencodeBasicV19.variant_function |cut -f 8 > ${2}.exon.snp
 $plink --bfile ${2} --freq --missing --hardy --out ${2} 
 grep ALL ${2}.hwe >${2}.hardy
-$plink --bfile ${2} --r2 --ld-window-kb 1000 --ld-windwo 99999 --ld-window-r2 ${MAF} --out ${2}
+$plink --bfile ${2} --r2 --ld-window-kb 1000 --ld-window 99999 --ld-window-r2 ${MAF} --out ${2}
 
 $python purning.py ${2}.imiss ${2}.keep.fam ${IMR} ${2}.lmiss ${CR} ${2}.frq ${MAF} ${2}.hardy ${HWE} ${2}.ld ${2}.exon.snp ../result/${1}/${1}.pairs.nos ../result/${1}/${1}.pairs.purning
 
