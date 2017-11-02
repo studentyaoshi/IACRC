@@ -33,8 +33,11 @@ hardy={}
 for i in a:
 	all=i.strip().split()
 	snp=all[1]
-	if float(all[-1]) > float(sys.argv[9]):
-		hardy[snp]='1'
+	try:
+		if float(all[-1]) > float(sys.argv[9]):
+			hardy[snp]='1'
+	except:
+		n=0
 a.close()
 a=open(sys.argv[10],'rt')
 ld={}
