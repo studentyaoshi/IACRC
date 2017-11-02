@@ -11,6 +11,9 @@ a=open(sys.argv[1],'rt')
 b=open(sys.argv[3],'wt')
 for i in a:
 	all=i.strip().split('\t')
-	b.write(i.rstrip('\n')+'\t'+dic.get(all[0])+'\n')
+	try:
+		b.write(i.rstrip('\n')+'\t'+dic.get(all[0])+'\n')
+	except:
+		n=0
 a.close()
 b.close()
