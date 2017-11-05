@@ -15,7 +15,7 @@ annovar=`grep Annovar_path ../original/files|awk -F ' ' '{print$2}'`
 
 $python snp_annotation.py ${2}.bim ${2}.anno.tem
 cat ../original/anno.xaa ../original/anno.xab ../original/anno.xac ../original/anno.xad ../original/anno.xae ../original/anno.xaf > ../original/hg19_wgEncodeGencodeBasicV19Mrna.fa
-rm ../original/anno.xaa ../original/anno.xab ../original/anno.xac ../original/anno.xad ../original/anno.xae ../original/anno.xaf
+#rm ../original/anno.xaa ../original/anno.xab ../original/anno.xac ../original/anno.xad ../original/anno.xae ../original/anno.xaf
 $perl ${annovar}/table_annovar.pl ${2}.anno.tem ../original/ -buildver hg19 -out ${2}.ex.out -protocol wgEncodeGencodeBasicV19 -operation g
 $python nosamegene.py ${2}.ex.out.wgEncodeGencodeBasicV19.variant_function ../result/${1}/${1}.pairs.uniq ../result/${1}/${1}.pairs.nos
 grep exonic ${2}.ex.out.wgEncodeGencodeBasicV19.variant_function |cut -f 8 > ${2}.exon.snp
