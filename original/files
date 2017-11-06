@@ -20,5 +20,3 @@ R_path /opt/software/R-3.3.2/bin/R
 Python_path /opt/software/python/bin/python
 Bedtools_path /opt/software/bedtools2-2.25.0/bin/bedtools
 Plink_path /opt/software/plink_1.90/plink
-Perl_path /usr/bin/perl
-Annovar_path /home/cxf/software/annovar
